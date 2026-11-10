@@ -1,0 +1,87 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jarvis-assistant"
+version = "0.2.0"
+description = "JARVIS v0.2 - a local-first desktop voice assistant for Windows, Linux and macOS"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "JARVIS contributors" }]
+keywords = ["voice-assistant", "jarvis", "offline", "accessibility", "desktop"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: End Users/Desktop",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: POSIX :: Linux",
+  "Operating System :: MacOS",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Desktop Environment",
+  "Topic :: Multimedia :: Sound/Audio :: Speech",
+]
+dependencies = []
+
+[project.optional-dependencies]
+# Microphone input, local (offline) speech output and a local wake-word engine.
+voice = ["sounddevice>=0.4.6", "numpy>=1.23", "pyttsx3>=2.90", "vosk>=0.3.45"]
+# Screen understanding (Pillow) and camera gesture mode (OpenCV + MediaPipe).
+vision = ["pillow>=10.0", "opencv-python>=4.8", "mediapipe>=0.10"]
+# Bluetooth LE scanning (read-only).
+bluetooth = ["bleak>=0.21"]
+# Full-screen terminal UI.
+tui = ["prompt-toolkit>=3.0"]
+# Better system information (battery, CPU, memory).
+system = ["psutil>=5.9"]
+dev = ["pytest>=7.4", "pytest-cov>=4.1", "ruff>=0.1"]
+all = [
+  "sounddevice>=0.4.6",
+  "numpy>=1.23",
+  "pyttsx3>=2.90",
+  "vosk>=0.3.45",
+  "pillow>=10.0",
+  "opencv-python>=4.8",
+  "mediapipe>=0.10",
+  "bleak>=0.21",
+  "prompt-toolkit>=3.0",
+  "psutil>=5.9",
+]
+
+[project.scripts]
+jarvis = "jarvis.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/mmunene695-arch/Jarvis"
+Issues = "https://github.com/mmunene695-arch/Jarvis/issues"
+Documentation = "https://github.com/mmunene695-arch/Jarvis#readme"
+
+[tool.setuptools]
+packages = ["jarvis", "jarvis.features", "jarvis.integrations"]
+
+[tool.setuptools.package-data]
+jarvis = ["py.typed"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+addopts = "-ra"
+filterwarnings = ["error::DeprecationWarning:jarvis.*"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+ignore = ["E501", "B005"]
+
+[tool.coverage.run]
+source = ["jarvis"]
+omit = ["jarvis/tui.py"]

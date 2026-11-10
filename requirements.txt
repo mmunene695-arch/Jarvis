@@ -1,0 +1,16 @@
+# JARVIS has NO required third-party dependencies.
+# The offline console, files, notes, knowledge, reminders and system status all
+# run on a bare Python 3.9+ installation.
+#
+# Optional extras (install the ones you need):
+#
+#   pip install -e ".[voice]"      microphone, offline speech output, local wake word
+#   pip install -e ".[vision]"     screen capture (Pillow) and camera gestures (OpenCV + MediaPipe)
+#   pip install -e ".[bluetooth]"  Bluetooth LE scanning
+#   pip install -e ".[tui]"        full-screen terminal UI
+#   pip install -e ".[system]"     better battery/CPU/memory details (psutil)
+#   pip install -e ".[all]"        everything above
+#   pip install -e ".[dev]"        test and lint tooling
+#
+# This file is intentionally empty so `pip install -r requirements.txt` works
+# on a clean machine and never fails on a missing wheel.
