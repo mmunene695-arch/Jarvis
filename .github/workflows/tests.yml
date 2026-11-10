@@ -17,8 +17,20 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        python: ["3.9", "3.12"]
+        include:
+          # Python 3.9 is not in the ubuntu-24.04 tool cache, so 3.9 runs on 22.04.
+          - os: ubuntu-22.04
+            python: "3.9"
+          - os: ubuntu-latest
+            python: "3.12"
+          - os: windows-latest
+            python: "3.9"
+          - os: windows-latest
+            python: "3.12"
+          - os: macos-latest
+            python: "3.9"
+          - os: macos-latest
+            python: "3.12"
     env:
       JARVIS_HOME: ${{ github.workspace }}/.jarvis-ci
       # The suite must be able to run with no credentials and no network access.
