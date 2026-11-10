@@ -1,0 +1,83 @@
+name: tests
+
+on:
+  push:
+    branches: ["main", "arena/**"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: ${{ matrix.os }} · Python ${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python: ["3.9", "3.12"]
+    env:
+      JARVIS_HOME: ${{ github.workspace }}/.jarvis-ci
+      # The suite must be able to run with no credentials and no network access.
+      JARVIS_OFFLINE: "1"
+      PYTHONUTF8: "1"
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Install the package and test tooling
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e .
+          python -m pip install pytest ruff
+
+      - name: Lint
+        run: ruff check .
+
+      - name: Run the offline test suite
+        run: python -m pytest -q
+
+      - name: Smoke test the CLI
+        shell: bash
+        run: |
+          python -m jarvis --version
+          python -m jarvis --doctor
+          python -m jarvis --command "system status"
+          python -m jarvis --command "create file ci.txt with hello"
+          python -m jarvis --command "create file ci.txt with hello" --yes
+          python -m jarvis --command "read file ci.txt"
+          python -m jarvis --command "save a note ci smoke test"
+          python -m jarvis --command "list notes"
+
+      - name: Check the installers
+        if: runner.os != 'Windows'
+        run: |
+          sh -n install-unix.sh
+          test -x install-unix.sh
+
+  powershell:
+    name: PowerShell installer parses
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Parse install-windows.ps1
+        shell: pwsh
+        run: |
+          $errors = $null
+          [System.Management.Automation.Language.Parser]::ParseFile(
+            (Resolve-Path '.\install-windows.ps1'), [ref]$null, [ref]$errors
+          ) | Out-Null
+          if ($errors.Count -gt 0) {
+            $errors | ForEach-Object { Write-Error $_ }
+            exit 1
+          }
+          Write-Host "install-windows.ps1 parsed with no syntax errors."

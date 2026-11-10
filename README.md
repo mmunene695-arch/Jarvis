@@ -548,3 +548,25 @@ covered without touching the network.
 ## License
 
 MIT — see [LICENSE](LICENSE).
+
+---
+
+## Continuous integration
+
+`.github/workflows/tests.yml` runs on every push and pull request:
+
+* **Ubuntu, Windows and macOS** × **Python 3.9 and 3.12**
+* `ruff check .`, then the full offline test suite (`JARVIS_HOME` in a temp folder,
+  `JARVIS_OFFLINE=1` so no network call can ever be required)
+* A CLI smoke test (`--version`, `--doctor`, `--command "system status"`, file create +
+  confirm + read, notes)
+* A PowerShell parse check of `install-windows.ps1` and a `sh -n` check of
+  `install-unix.sh`
+
+Reproduce it locally with:
+
+```bash
+python -m pip install -e . pytest ruff
+ruff check .
+python -m pytest -q
+```
