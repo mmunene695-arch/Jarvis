@@ -2,7 +2,7 @@ name: deploy-kiboflow-pages
 
 on:
   push:
-    branches: ["main", "arena/**"]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:

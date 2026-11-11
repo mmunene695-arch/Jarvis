@@ -82,7 +82,22 @@ def make_handler(store: KiboFlowStore) -> type[BaseHTTPRequestHandler]:
             self.send_response(HTTPStatus.NO_CONTENT)
             self.send_header("Access-Control-Allow-Origin", "*")
             self.send_header("Access-Control-Allow-Headers", "Content-Type")
-            self.send_header("Access-Control-Allow-Methods", "GET, POST, PATCH, OPTIONS")
+            self.send_header("Access-Control-Allow-Methods", "GET, HEAD, POST, PATCH, OPTIONS")
+            self.end_headers()
+
+        def do_HEAD(self) -> None:
+            parsed = urlparse(self.path)
+            route = STATIC_ROUTES.get(parsed.path)
+            if route:
+                target = (WEB_DIR / route[0]).resolve()
+                if target.is_file():
+                    self.send_response(HTTPStatus.OK)
+                    self.send_header("Content-Type", route[1])
+                    self.send_header("Content-Length", str(target.stat().st_size))
+                    self.send_header("Access-Control-Allow-Origin", "*")
+                    self.end_headers()
+                    return
+            self.send_response(HTTPStatus.OK if parsed.path == "/api/health" else HTTPStatus.NOT_FOUND)
             self.end_headers()
 
         def do_GET(self) -> None:
