@@ -1,0 +1,15 @@
+{
+  "brand": "KaziPesa Digital",
+  "name": "Mark Munene",
+  "whatsapp": "+254729213641",
+
+  "payment_mode": "personal",
+  "personal_number": "0729 213 641",
+  "mpesa_registered_name": "Mark Munene",
+  "till": "",
+  "till_name": "",
+
+  "town": "Nyeri",
+  "tagline": "Kazi leo. Pesa leo.",
+  "_comment": "payment_mode: 'personal' = customers Send Money to your own M-Pesa number. Switch to 'till' and fill in 'till' + 'till_name' when you have a Lipa na M-Pesa Till, then re-run: python3 business/ops/setup.py"
+}

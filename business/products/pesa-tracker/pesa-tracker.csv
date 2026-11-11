@@ -1,0 +1,6 @@
+Date,Description,Category,Money In (KES),Money Out (KES),Payment Method,Notes
+2026-11-01,Opening balance / float,Float,5000,0,Cash,Delete this row once you understand the format
+2026-11-01,Tomatoes 2 crates,Stock,0,3000,Cash,Example row - delete before use
+2026-11-01,Day sales - retail,Sales,4200,0,M-Pesa,Example row - delete before use
+2026-11-01,Transport to market,Transport,0,300,Cash,Example row - delete before use
+2026-11-01,Boda boda delivery to customer,Transport,0,150,M-Pesa,Example row - delete before use
