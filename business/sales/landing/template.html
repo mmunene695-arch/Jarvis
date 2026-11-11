@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{BRAND}} — CV, Business Plans &amp; Digital Kits | Pay via M-Pesa</title>
+<meta name="description" content="CV makeover KES 800. Funding-ready business plans KES 3,500. Digital kits from KES 300. Nyeri &amp; nationwide. Pay via M-Pesa, delivered on WhatsApp within 24 hours.">
+<style>
+:root{
+  --green:#0a7d3c; --green-d:#065c2b; --green-l:#e8f6ee;
+  --ink:#0d1117; --grey:#5b6472; --line:#e3e7ec; --white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:640px;margin:0 auto;padding:0 18px}
+header{background:var(--ink);color:#fff;padding:16px 0;position:sticky;top:0;z-index:20}
+header .wrap{display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;letter-spacing:-.02em;font-size:17px}
+.logo span{color:#4ade80}
+.btn{display:block;width:100%;text-align:center;padding:15px 18px;border-radius:12px;
+  font-weight:700;font-size:16px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.btn-wa{background:#25D366;color:#fff}
+.btn-wa:hover{background:#1ebe5b}
+.btn-g{background:var(--green);color:#fff}
+.btn-g:hover{background:var(--green-d)}
+.btn-o{background:var(--white);color:var(--green);border:2px solid var(--green)}
+.hero{background:linear-gradient(160deg,var(--green-d),var(--green));color:#fff;padding:38px 0 44px;text-align:center}
+.hero h1{font-size:29px;line-height:1.15;letter-spacing:-.02em;margin-bottom:12px}
+.hero p{font-size:16px;opacity:.95;margin-bottom:22px;max-width:440px;margin-left:auto;margin-right:auto}
+.badge{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);
+  padding:5px 13px;border-radius:99px;font-size:12.5px;font-weight:600;margin-bottom:16px}
+section{padding:34px 0;border-bottom:1px solid var(--line)}
+h2{font-size:21px;letter-spacing:-.01em;margin-bottom:6px}
+.sub{color:var(--grey);font-size:14.5px;margin-bottom:20px}
+.card{border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px;background:#fff}
+.card.hot{border-color:var(--green);box-shadow:0 3px 14px rgba(10,125,60,.10)}
+.tag{display:inline-block;background:var(--green);color:#fff;font-size:11px;font-weight:700;
+  padding:3px 9px;border-radius:6px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px}
+.card h3{font-size:17px;margin-bottom:5px}
+.card p{font-size:14.5px;color:var(--grey);margin-bottom:12px}
+.price{font-size:25px;font-weight:800;color:var(--green);letter-spacing:-.02em}
+.price small{font-size:13px;font-weight:600;color:var(--grey)}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.pay{background:var(--green-l);border:2px dashed var(--green);border-radius:14px;padding:20px;text-align:center}
+.pay h3{font-size:17px;margin-bottom:6px;color:var(--green-d)}
+.till{font-size:33px;font-weight:800;letter-spacing:.06em;color:var(--ink);margin:12px 0 4px}
+.steps{text-align:left;background:#fff;border-radius:11px;padding:16px 18px;font-size:14.5px;margin-top:14px}
+.steps li{margin:0 0 9px 18px}
+.lead{background:var(--ink);color:#fff;border-radius:14px;padding:22px;text-align:center}
+.lead h3{font-size:18px;margin-bottom:7px}
+.lead p{font-size:14.5px;opacity:.9;margin-bottom:16px}
+ul.tick{list-style:none;font-size:14.5px}
+ul.tick li{padding-left:26px;position:relative;margin-bottom:9px}
+ul.tick li:before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
+form{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+label{display:block;font-size:13.5px;font-weight:700;margin-bottom:5px;margin-top:12px}
+input,select,textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;
+  font-size:15px;font-family:inherit;background:#fff}
+textarea{min-height:78px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--green);outline-offset:0;border-color:var(--green)}
+form button{margin-top:16px}
+.faq details{border-bottom:1px solid var(--line);padding:13px 0}
+.faq summary{font-weight:700;font-size:15px;cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";float:right;color:var(--green);font-weight:800;font-size:19px;line-height:1}
+.faq details[open] summary:after{content:"−"}
+.faq p{font-size:14.5px;color:var(--grey);margin-top:9px}
+footer{background:var(--ink);color:#9aa4b2;padding:26px 0;font-size:13.5px;text-align:center}
+footer a{color:#4ade80}
+.note{font-size:12.5px;color:var(--grey);text-align:center;margin-top:10px}
+.ok{background:var(--green-l);border:1px solid var(--green);color:var(--green-d);
+  padding:16px;border-radius:12px;font-weight:600;text-align:center;margin-bottom:16px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">{{BRAND}}<span>.</span></div>
+    <a href="https://wa.me/{{WHATSAPP_INT}}" style="color:#fff;font-weight:700;font-size:14px;text-decoration:none">WhatsApp →</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="badge">📍 Nyeri &amp; nationwide · M-Pesa · 24-hour delivery</div>
+    <h1>Get the job. Get the funding. Get paid.</h1>
+    <p>CV makeovers, funding-ready business plans and digital kits that Kenyans actually buy — delivered straight to your WhatsApp.</p>
+    <a class="btn btn-wa" href="https://wa.me/{{WHATSAPP_INT}}?text={{WA_HELLO}}">💬 Chat on WhatsApp — {{WHATSAPP}}</a>
+    <p class="note" style="color:rgba(255,255,255,.8)">Pay after you see the draft. No deposit games.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>Services</h2>
+    <p class="sub">Done for you. You send the details, I send the finished work.</p>
+
+    <div class="card hot">
+      <span class="tag">Most popular</span>
+      <div class="row">
+        <div>
+          <h3>CV Makeover</h3>
+          <p>ATS-ready CV + matching cover letter, rewritten for the job you actually want. 24 hours.</p>
+        </div>
+        <div class="price">KES 800</div>
+      </div>
+      <a class="btn btn-g" style="margin-top:12px" href="https://wa.me/{{WHATSAPP_INT}}?text={{WA_CV}}">Order CV Makeover</a>
+    </div>
+
+    <div class="card">
+      <div class="row">
+        <div>
+          <h3>CV + LinkedIn Combo</h3>
+          <p>Everything in the Makeover, plus a LinkedIn profile that recruiters find. 48 hours.</p>
+        </div>
+        <div class="price">KES 1,500</div>
+      </div>
+      <a class="btn btn-o" style="margin-top:12px" href="https://wa.me/{{WHATSAPP_INT}}?text={{WA_LINKEDIN}}">Order Combo</a>
+    </div>
+
+    <div class="card">
+      <div class="row">
+        <div>
+          <h3>Social Starter Pack</h3>
+          <p>Bio, profile picture direction, and 9 ready-to-post designs for your business. 72 hours.</p>
+        </div>
+        <div class="price">KES 2,000</div>
+      </div>
+      <a class="btn btn-o" style="margin-top:12px" href="https://wa.me/{{WHATSAPP_INT}}?text={{WA_SOCIAL}}">Order Starter Pack</a>
+    </div>
+
+    <div class="card hot">
+      <span class="tag">Highest value</span>
+      <div class="row">
+        <div>
+          <h3>Biashara Plan (funding-ready)</h3>
+          <p>A full business plan formatted for Uwezo Fund, Women Enterprise Fund, Youth Fund, your SACCO or the bank. 72 hours.</p>
+        </div>
+        <div class="price">KES 3,500</div>
+      </div>
+      <a class="btn btn-g" style="margin-top:12px" href="https://wa.me/{{WHATSAPP_INT}}?text={{WA_PLAN}}">Order Business Plan</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Digital Kits</h2>
+    <p class="sub">Instant download. Buy once, keep forever.</p>
+
+    <div class="card">
+      <div class="row">
+        <div>
+          <h3>CV &amp; Cover Letter Kit</h3>
+          <p>3 fill-in templates + the 7 CV Mistakes guide + interview cheat sheet.</p>
+        </div>
+        <div class="price">KES 300</div>
+      </div>
+      <a class="btn btn-o" style="margin-top:12px" href="https://wa.me/{{WHATSAPP_INT}}?text={{WA_KIT_CV}}">Get the Kit</a>
+    </div>
+
+    <div class="card">
+      <div class="row">
+        <div>
+          <h3>Pesa Tracker</h3>
+          <p>Sales, expenses and real profit — a KES spreadsheet that works on your phone.</p>
+        </div>
+        <div class="price">KES 500</div>
+      </div>
+      <a class="btn btn-o" style="margin-top:12px" href="https://wa.me/{{WHATSAPP_INT}}?text={{WA_KIT_PESA}}">Get the Tracker</a>
+    </div>
+
+    <div class="card">
+      <div class="row">
+        <div>
+          <h3>Biashara Plan Pack</h3>
+          <p>The template funders expect + a 12-month cashflow sheet. Write it yourself.</p>
+        </div>
+        <div class="price">KES 1,500</div>
+      </div>
+      <a class="btn btn-o" style="margin-top:12px" href="https://wa.me/{{WHATSAPP_INT}}?text={{WA_KIT_PLAN}}">Get the Pack</a>
+    </div>
+
+    <div class="card hot">
+      <span class="tag">Best deal — save KES 400</span>
+      <div class="row">
+        <div>
+          <h3>KaziPesa Complete</h3>
+          <p>All three kits, plus a 30-minute WhatsApp consultation.</p>
+        </div>
+        <div class="price">KES 1,900</div>
+      </div>
+      <a class="btn btn-g" style="margin-top:12px" href="https://wa.me/{{WHATSAPP_INT}}?text={{WA_BUNDLE}}">Get Everything</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>How to pay</h2>
+    <p class="sub">M-Pesa. Instant. No card, no account, no app.</p>
+    <div class="pay">
+      <h3>Lipa na M-Pesa — Till Number</h3>
+      <div class="till">{{TILL}}</div>
+      <div style="font-weight:700;color:var(--green-d)">{{TILL_NAME}}</div>
+      <ol class="steps">
+        <li>Go to <b>M-Pesa</b> → <b>Lipa na M-Pesa</b> → <b>Buy Goods and Services</b></li>
+        <li>Enter Till Number <b>{{TILL}}</b></li>
+        <li>Enter the amount</li>
+        <li>Enter your M-Pesa PIN and confirm</li>
+        <li>Screenshot the confirmation and send it on WhatsApp 👇</li>
+      </ol>
+      <a class="btn btn-wa" style="margin-top:16px" href="https://wa.me/{{WHATSAPP_INT}}?text={{WA_PAID}}">📲 I've paid — send me my order</a>
+      <p class="note">Or send me a message first and I'll walk you through it.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="lead">
+      <h3>🎁 Free: 7 CV Mistakes That Cost You The Interview</h3>
+      <p>No payment, no card. Just message me the word <b>CV</b> on WhatsApp and I'll send it straight over.</p>
+      <a class="btn btn-wa" href="https://wa.me/{{WHATSAPP_INT}}?text={{WA_FREE}}">Send me the free guide</a>
+    </div>
+  </div>
+</section>
+
+<section id="order">
+  <div class="wrap">
+    <h2>Place your order</h2>
+    <p class="sub">Takes 30 seconds. I reply on WhatsApp, usually within the hour.</p>
+    <form id="orderForm" onsubmit="return submitOrder(event)">
+      <label for="name">Your name</label>
+      <input id="name" name="name" required placeholder="e.g. Wanjiku Kamau">
+
+      <label for="phone">WhatsApp number</label>
+      <input id="phone" name="phone" required placeholder="0712 345 678">
+
+      <label for="product">What do you need?</label>
+      <select id="product" name="product">
+        <option value="cv-makeover">CV Makeover — KES 800</option>
+        <option value="cv-linkedin">CV + LinkedIn Combo — KES 1,500</option>
+        <option value="social-pack">Social Starter Pack — KES 2,000</option>
+        <option value="business-plan">Biashara Plan (done for you) — KES 3,500</option>
+        <option value="kit-cv">CV &amp; Cover Letter Kit — KES 300</option>
+        <option value="kit-pesa">Pesa Tracker — KES 500</option>
+        <option value="kit-plan">Biashara Plan Pack — KES 1,500</option>
+        <option value="bundle">KaziPesa Complete — KES 1,900</option>
+        <option value="free-guide">Free CV guide</option>
+      </select>
+
+      <label for="notes">Anything I should know? (optional)</label>
+      <textarea id="notes" name="notes" placeholder="e.g. Applying for a nursing job at Nyeri County. Deadline Friday."></textarea>
+
+      <button class="btn btn-g" type="submit">Send my order →</button>
+      <p class="note">Your order goes straight to my WhatsApp. I'll confirm the price and the M-Pesa details there.</p>
+    </form>
+    <div id="result"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Why people choose {{BRAND}}</h2>
+    <ul class="tick" style="margin-top:14px">
+      <li><b>Pay after you see the draft.</b> You approve the work, then you pay. No risk.</li>
+      <li><b>Fast.</b> CVs in 24 hours, business plans in 72. Deadlines matter and I keep them.</li>
+      <li><b>Kenyan formats.</b> Written for Kenyan employers, Kenyan funds and Kenyan banks — not copied from a US blog.</li>
+      <li><b>No registration fees. Ever.</b> If anyone asks you for money to "unlock" a job or a task, it is a scam.</li>
+      <li><b>Full refund, no questions.</b> If you are not happy, you get your money back the same day.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <h2>Questions people ask</h2>
+    <div style="margin-top:14px">
+      <details><summary>How fast will I get my CV?</summary><p>Within 24 hours of you sending your current CV and the job adverts you're targeting. Usually the same day.</p></details>
+      <details><summary>Do I pay before or after?</summary><p>After. I send you a watermarked draft, you approve it, then you pay the full amount and I send the clean final files.</p></details>
+      <details><summary>Is my business plan really fundable?</summary><p>I format it to the structure Uwezo Fund, Women Enterprise Fund, Youth Fund, SACCOs and bank SME desks expect. I cannot guarantee approval — nobody can — but I can guarantee the paperwork will not be the reason you are rejected.</p></details>
+      <details><summary>Can you help me if I'm outside Nyeri?</summary><p>Yes. Everything is delivered on WhatsApp. I have clients anywhere there is a phone signal.</p></details>
+      <details><summary>What if I don't have a CV yet?</summary><p>Send me your certificates, your work history in a plain message, and the jobs you want. I'll build it from scratch — same price.</p></details>
+      <details><summary>Are the digital kits editable?</summary><p>Yes. You get editable files you can change yourself, forever.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p style="color:#fff;font-weight:700;font-size:15px;margin-bottom:6px">{{BRAND}}</p>
+    <p>{{NAME}} · Nyeri, Kenya · <a href="https://wa.me/{{WHATSAPP_INT}}">WhatsApp {{WHATSAPP}}</a></p>
+    <p style="margin-top:10px;opacity:.7">Payments via M-Pesa Till {{TILL}}. Delivery on WhatsApp. Full refunds, no questions asked.</p>
+  </div>
+</footer>
+
+<script>
+async function submitOrder(e){
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  btn.disabled = true; btn.textContent = 'Sending…';
+  const data = Object.fromEntries(new FormData(e.target).entries());
+  try{
+    const r = await fetch('/api/order', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(data)
+    });
+    const j = await r.json();
+    document.getElementById('orderForm').style.display='none';
+    document.getElementById('result').innerHTML =
+      '<div class="ok">✅ '+ (j.message || 'Order received!') +'</div>' +
+      '<a class="btn btn-wa" href="https://wa.me/{{WHATSAPP_INT}}?text={{WA_ORDERED}}">Continue on WhatsApp →</a>';
+  }catch(err){
+    btn.disabled=false; btn.textContent='Send my order →';
+    alert('Could not send automatically. Please WhatsApp me directly on {{WHATSAPP}} — sorry!');
+  }
+  return false;
+}
+</script>
+</body>
+</html>

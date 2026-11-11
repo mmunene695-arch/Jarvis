@@ -30,3 +30,13 @@ knowledge.json
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# KaziPesa Digital (business/)
+# The brand config is a checked-in template that the owner edits and re-runs
+# setup.py with - it is not a secret, so it overrides the global config.json rule.
+!business/brand/config.json
+# Cached state from the last setup.py run
+business/brand/.last-applied.json
+# Customer data: sales and outreach logs stay on the owner's machine
+business/ops/ledger.csv
+business/ops/outreach.csv
