@@ -28,6 +28,11 @@ STATIC_ROUTES: dict[str, tuple[str, str]] = {
     "/demos/clinic.html": ("demos/clinic.html", "text/html; charset=utf-8"),
     "/demos/hardware": ("demos/hardware.html", "text/html; charset=utf-8"),
     "/demos/hardware.html": ("demos/hardware.html", "text/html; charset=utf-8"),
+    "/le-pristine": ("demos/le-pristine.html", "text/html; charset=utf-8"),
+    "/le-pristine/": ("demos/le-pristine.html", "text/html; charset=utf-8"),
+    "/demos/le-pristine": ("demos/le-pristine.html", "text/html; charset=utf-8"),
+    "/demos/le-pristine/": ("demos/le-pristine.html", "text/html; charset=utf-8"),
+    "/demos/le-pristine.html": ("demos/le-pristine.html", "text/html; charset=utf-8"),
 }
 
 

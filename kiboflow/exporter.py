@@ -24,10 +24,15 @@ def export_static_site(output_dir: Path) -> Path:
     ops_dir.mkdir(exist_ok=True)
     shutil.copy2(out / "ops.html", ops_dir / "index.html")
 
-    for demo_slug in ("hospitality", "clinic", "hardware"):
+    for demo_slug in ("hospitality", "clinic", "hardware", "le-pristine"):
         demo_subdir = out / "demos" / demo_slug
         demo_subdir.mkdir(parents=True, exist_ok=True)
         shutil.copy2(out / "demos" / f"{demo_slug}.html", demo_subdir / "index.html")
+
+    # Also expose /le-pristine/ at top level for clean client SMS/WhatsApp sharing
+    lp_root = out / "le-pristine"
+    lp_root.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(out / "demos" / "le-pristine.html", lp_root / "index.html")
 
     # Pre-baked JSON fallback so static hosting works even without the Python backend
     static_api = out / "static_data"

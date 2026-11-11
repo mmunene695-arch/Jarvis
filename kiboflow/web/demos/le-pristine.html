@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Pristine Hotel — Boutique Stay &amp; #1 Dining on Seremwai Road, Nyeri</title>
+  <style>
+    :root {
+      --forest: #0c241d;
+      --forest-mid: #14382d;
+      --gold: #c89b3c;
+      --gold-light: #f3e5c3;
+      --cream: #faf7f2;
+      --paper: #ffffff;
+      --ink: #17211d;
+      --muted: #5a6963;
+      --line: #e6dfd3;
+      --wa: #15803d;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+      line-height: 1.55;
+      padding-bottom: 78px;
+    }
+    h1, h2, h3, .serif {
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: -0.015em;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* Concept Disclosure Ribbon */
+    .concept-bar {
+      background: #071510;
+      color: #d7e5df;
+      font-size: 0.76rem;
+      padding: 7px 14px;
+      text-align: center;
+      border-bottom: 1px solid rgba(200, 155, 60, 0.3);
+    }
+    .concept-bar strong { color: #f3cf7a; }
+
+    /* Top Brand Header */
+    .top-nav {
+      background: var(--forest);
+      color: #fff;
+      padding: 13px 18px;
+      position: sticky;
+      top: 0;
+      z-index: 35;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    }
+    .top-nav-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .logo-lockup {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .monogram {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1.5px solid var(--gold);
+      color: #f3cf7a;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Georgia, serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+    .logo-text strong {
+      display: block;
+      font-family: Georgia, serif;
+      font-size: 1.06rem;
+      letter-spacing: 0.02em;
+    }
+    .logo-text span {
+      display: block;
+      font-size: 0.72rem;
+      color: #b7cbc3;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      font-size: 0.84rem;
+      color: #d7e5df;
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+    }
+
+    /* Hero — 3-Second Above-the-Fold Clarity */
+    .hero {
+      background:
+        radial-gradient(circle at 85% 18%, rgba(200, 155, 60, 0.22), transparent 45%),
+        linear-gradient(165deg, #091c16 0%, #14382d 62%, #1b4639 100%);
+      color: #fff;
+      padding: 36px 18px 32px;
+    }
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .award-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(200, 155, 60, 0.2);
+      border: 1px solid rgba(243, 207, 122, 0.45);
+      color: #f7dca0;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(1.85rem, 5.2vw, 2.95rem);
+      line-height: 1.13;
+      font-weight: 700;
+      max-width: 720px;
+    }
+    .hero p.sub {
+      margin: 0 0 22px;
+      color: #d3e2dc;
+      font-size: 0.98rem;
+      max-width: 600px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: #1a1204;
+      font-weight: 800;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      border: 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #fff;
+      font-weight: 700;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .three-sec-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      padding-top: 16px;
+    }
+    .strip-box {
+      background: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 0.8rem;
+    }
+    .strip-box strong {
+      display: block;
+      color: #f7dca0;
+      font-size: 0.86rem;
+      margin-bottom: 2px;
+    }
+    @media (max-width: 560px) {
+      .three-sec-strip { grid-template-columns: 1fr; }
+    }
+
+    /* Sections */
+    .section {
+      padding: 36px 18px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .section-head {
+      margin-bottom: 20px;
+    }
+    .section-head span.kicker {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #8c6518;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .section-head h2 {
+      margin: 0 0 6px;
+      font-size: clamp(1.45rem, 3.6vw, 2rem);
+    }
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* Rooms Grid */
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+      gap: 16px;
+    }
+    .room-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 8px 22px rgba(12, 36, 29, 0.05);
+    }
+    .room-visual {
+      height: 132px;
+      padding: 14px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+    .rv-1 { background: linear-gradient(135deg, #173f33, #2f6856); }
+    .rv-2 { background: linear-gradient(135deg, #3b2d18, #7c5c28); }
+    .rv-3 { background: linear-gradient(135deg, #1d2d3a, #35546c); }
+    .room-body { padding: 16px; }
+    .room-body h3 { margin: 0 0 6px; font-size: 1.15rem; }
+    .room-body p { margin: 0 0 12px; font-size: 0.86rem; color: var(--muted); }
+    .perks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .perk {
+      font-size: 0.74rem;
+      background: #f3efe6;
+      color: #3f3624;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .room-foot {
+      padding: 0 16px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .select-btn {
+      background: var(--forest);
+      color: #fff;
+      border: 0;
+      border-radius: 8px;
+      padding: 9px 13px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Menu Tabs */
+    .menu-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .menu-tab {
+      background: #efeae0;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .menu-tab.active {
+      background: var(--forest);
+      color: #f7dca0;
+      border-color: var(--forest);
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .dish {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .dish strong { display: block; font-size: 0.95rem; margin-bottom: 3px; }
+    .dish span.desc { display: block; font-size: 0.8rem; color: var(--muted); }
+    .dish button {
+      background: #f5efe2;
+      border: 1px solid #d7c7a3;
+      color: #4a3508;
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 7px 11px;
+      border-radius: 8px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    /* Concierge Reservation Card */
+    .concierge-card {
+      background: var(--paper);
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      padding: 22px 18px;
+      box-shadow: 0 14px 32px rgba(12, 36, 29, 0.08);
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    label.fl {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--forest);
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #cfc7b8;
+      border-radius: 9px;
+      font-size: 0.92rem;
+      font-family: inherit;
+      background: #fff;
+    }
+    .wa-submit {
+      width: 100%;
+      background: var(--wa);
+      color: #fff;
+      border: 0;
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 0.96rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    /* Location Box */
+    .location-box {
+      background: var(--forest);
+      color: #fff;
+      border-radius: 16px;
+      padding: 22px 18px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: center;
+    }
+    @media (max-width: 680px) {
+      .location-box { grid-template-columns: 1fr; }
+    }
+
+    /* Sticky Mobile Action Bar */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--line);
+      padding: 10px 14px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      z-index: 50;
+    }
+    .sticky-call {
+      flex: 1;
+      max-width: 200px;
+      background: var(--forest);
+      color: #fff;
+      text-align: center;
+      padding: 12px 10px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.88rem;
+    }
+    .sticky-wa {
+      flex: 1.45;
+      max-width: 300px;
+      background: var(--wa);
+      color: #fff;
+      text-align: center;
+      padding: 12px 10px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.88rem;
+      border: 0;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="concept-bar">
+    Custom Mobile Preview Crafted for <strong>Le Pristine Hotel</strong> · Built by Mark Munene, Nyeri (<a href="tel:+254729213641" style="text-decoration:underline;">0729 213 641</a>)
+  </div>
+
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <div class="logo-lockup">
+        <span class="monogram">LP</span>
+        <div class="logo-text">
+          <strong>LE PRISTINE HOTEL</strong>
+          <span>Seremwai Road · Nyeri</span>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#dining" onclick="document.getElementById('dining').scrollIntoView({behavior:'smooth'});return false;">Fine Dining</a>
+        <a href="#rooms">Rooms &amp; Suites</a>
+        <a href="#concierge">Book Direct</a>
+        <a href="#location">Directions</a>
+      </nav>
+      <a href="tel:+254701966937" class="btn-gold" style="padding:8px 13px; font-size:0.8rem;">0701 966 937</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="award-pill">★ Ranked #1 Restaurant in Nyeri on Tripadvisor</div>
+      <h1>Quiet Luxury, Serene Gardens &amp; Nyeri’s Finest Kitchen.</h1>
+      <p class="sub">
+        Tucked along leafy Seremwai Road—reserve a garden table, pre-order from our chef’s kitchen, or book a restful boutique suite in three taps.
+      </p>
+      <div class="hero-actions">
+        <a href="#concierge" class="btn-gold">Reserve Table or Suite →</a>
+        <a href="#dining" class="btn-ghost">Explore Kitchen Menu</a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Le+Pristine+Hotel+Seremwai+Road+Nyeri" target="_blank" rel="noopener" class="btn-ghost">📍 Google Maps</a>
+      </div>
+      <div class="three-sec-strip">
+        <div class="strip-box">
+          <strong>📍 Seremwai Road, Nyeri</strong>
+          Tranquil leafy grounds, 3 mins from Nyeri CBD
+        </div>
+        <div class="strip-box">
+          <strong>🍽️ #1 Rated Dining</strong>
+          Fresh-to-order highland &amp; continental cuisine
+        </div>
+        <div class="strip-box">
+          <strong>💬 Instant Direct Booking</strong>
+          Confirm rooms, tables &amp; events on WhatsApp
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="dining" class="section">
+    <div class="section-head">
+      <span class="kicker">Tripadvisor #1 in Nyeri</span>
+      <h2>The Restaurant &amp; Garden Terrace</h2>
+      <p>Tap any item below to include it in your table reservation or takeaway pre-order.</p>
+    </div>
+
+    <div class="menu-tabs">
+      <button type="button" class="menu-tab active" onclick="filterMenu('signatures', this)">Chef’s Signatures</button>
+      <button type="button" class="menu-tab" onclick="filterMenu('breakfast', this)">Garden Breakfast &amp; Café</button>
+      <button type="button" class="menu-tab" onclick="filterMenu('events', this)">Private Dining &amp; Meetings</button>
+    </div>
+
+    <div id="menu-container" class="menu-grid"></div>
+  </section>
+
+  <section id="rooms" class="section" style="padding-top:8px;">
+    <div class="section-head">
+      <span class="kicker">Boutique Accommodation</span>
+      <h2>Restful Suites Along Seremwai Road</h2>
+      <p>Spotless en-suite rooms surrounded by quiet gardens, secure parking, and attentive hospitality.</p>
+    </div>
+
+    <div class="rooms-grid">
+      <article class="room-card">
+        <div>
+          <div class="room-visual rv-1">
+            <span>Garden View</span>
+            <span style="background:rgba(0,0,0,0.45); padding:3px 9px; border-radius:999px;">Bed &amp; Breakfast</span>
+          </div>
+          <div class="room-body">
+            <h3>Executive Garden Suite</h3>
+            <p>Spacious king suite opening onto manicured greenery, work desk, rainfall shower &amp; gourmet breakfast.</p>
+            <div class="perks">
+              <span class="perk">King Bed</span>
+              <span class="perk">High-Speed Wi-Fi</span>
+              <span class="perk">Breakfast Included</span>
+            </div>
+          </div>
+        </div>
+        <div class="room-foot">
+          <span style="font-size:0.82rem; color:var(--muted); font-weight:700;">Direct Rate Inquiry</span>
+          <button type="button" class="select-btn" onclick="selectInquiry('Executive Garden Suite', 'Overnight Room / Suite Stay')">Check Dates →</button>
+        </div>
+      </article>
+
+      <article class="room-card">
+        <div>
+          <div class="room-visual rv-2">
+            <span>Most Popular</span>
+            <span style="background:rgba(0,0,0,0.45); padding:3px 9px; border-radius:999px;">Couples &amp; Business</span>
+          </div>
+          <div class="room-body">
+            <h3>Deluxe Highland Double</h3>
+            <p>Warm contemporary interiors, plush bedding, hot shower, smart TV &amp; fresh morning coffee service.</p>
+            <div class="perks">
+              <span class="perk">Queen Bed</span>
+              <span class="perk">Secure Parking</span>
+              <span class="perk">Room Service</span>
+            </div>
+          </div>
+        </div>
+        <div class="room-foot">
+          <span style="font-size:0.82rem; color:var(--muted); font-weight:700;">Direct Rate Inquiry</span>
+          <button type="button" class="select-btn" onclick="selectInquiry('Deluxe Highland Double', 'Overnight Room / Suite Stay')">Check Dates →</button>
+        </div>
+      </article>
+
+      <article class="room-card">
+        <div>
+          <div class="room-visual rv-3">
+            <span>Corporate &amp; Groups</span>
+            <span style="background:rgba(0,0,0,0.45); padding:3px 9px; border-radius:999px;">Custom Packages</span>
+          </div>
+          <div class="room-body">
+            <h3>Boardroom &amp; Garden Events</h3>
+            <p>Private executive retreats, family celebrations, high-tea gatherings &amp; full-day conference catering.</p>
+            <div class="perks">
+              <span class="perk">Projector &amp; Wi-Fi</span>
+              <span class="perk">Chef Buffet</span>
+              <span class="perk">Private Lawn</span>
+            </div>
+          </div>
+        </div>
+        <div class="room-foot">
+          <span style="font-size:0.82rem; color:var(--muted); font-weight:700;">Tailored Quote</span>
+          <button type="button" class="select-btn" onclick="selectInquiry('Private Boardroom / Garden Event', 'Private Event / Conferencing')">Request Quote →</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="concierge" class="section" style="padding-top:8px;">
+    <div class="concierge-card">
+      <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.08em; color:#8c6518;">1-Tap Direct Concierge</span>
+      <h2 style="margin:4px 0 6px;">Reserve Directly With Le Pristine Front Desk</h2>
+      <p id="selected-summary" style="margin:0 0 16px; font-size:0.88rem; color:var(--muted);">
+        Your selection: General Reservation (tap any menu dish or suite above to attach it automatically).
+      </p>
+
+      <div class="form-grid">
+        <div>
+          <label class="fl" for="lp-name">Guest Name</label>
+          <input type="text" id="lp-name" placeholder="e.g. Dr. Kamau / Sarah" />
+        </div>
+        <div>
+          <label class="fl" for="lp-type">Reservation Type</label>
+          <select id="lp-type">
+            <option value="Dining Table Reservation">Dining Table Reservation</option>
+            <option value="Overnight Room / Suite Stay">Overnight Room / Suite Stay</option>
+            <option value="Takeaway Kitchen Pre-Order">Takeaway Kitchen Pre-Order</option>
+            <option value="Private Event / Conferencing">Private Event / Conferencing</option>
+          </select>
+        </div>
+        <div>
+          <label class="fl" for="lp-when">Date &amp; Arrival Time</label>
+          <input type="text" id="lp-when" placeholder="e.g. Tonight 7:30 PM / Fri–Sun" />
+        </div>
+        <div>
+          <label class="fl" for="lp-guests">Number of Guests</label>
+          <select id="lp-guests">
+            <option value="2 Guests">2 Guests</option>
+            <option value="1 Guest">1 Guest</option>
+            <option value="3–4 Guests">3–4 Guests</option>
+            <option value="5–8 Guests (Family/Group)">5–8 Guests (Family/Group)</option>
+            <option value="10+ Guests (Private Setup)">10+ Guests (Private Setup)</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="button" class="wa-submit" onclick="sendLePristineWhatsApp()">
+        💬 Send Reservation to Le Pristine on WhatsApp (0701 966 937) →
+      </button>
+    </div>
+  </section>
+
+  <section id="location" class="section" style="padding-top:8px;">
+    <div class="location-box">
+      <div>
+        <span style="color:#f7dca0; font-size:0.76rem; font-weight:800; text-transform:uppercase; letter-spacing:0.08em;">Find Us in Nyeri</span>
+        <h2 style="margin:6px 0 8px;">Le Pristine Hotel · Seremwai Road</h2>
+        <p style="margin:0 0 14px; color:#d3e2dc; font-size:0.9rem;">
+          Located in a peaceful, leafy neighborhood along Seremwai Road, Nyeri—ample secure parking, serene outdoor seating, and warm personal service.
+        </p>
+        <div style="font-size:0.88rem; color:#f7dca0;">
+          📞 Front Desk: <a href="tel:+254701966937" style="text-decoration:underline;">+254 701 966937</a>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Le+Pristine+Hotel+Seremwai+Road+Nyeri" target="_blank" rel="noopener" class="btn-gold" style="justify-content:center;">
+          📍 Open Directions in Google Maps
+        </a>
+        <a href="tel:+254701966937" class="btn-ghost" style="justify-content:center;">
+          📞 Call Front Desk Directly
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="sticky-bar">
+    <a href="tel:+254701966937" class="sticky-call">📞 Call 0701 966937</a>
+    <button type="button" class="sticky-wa" onclick="document.getElementById('concierge').scrollIntoView({behavior:'smooth'})">
+      💬 Book Table / Suite
+    </button>
+  </div>
+
+  <script>
+    const MENU_DATA = {
+      signatures: [
+        { name: "Herb-Crusted Mt. Kenya Rainbow Trout", desc: "Pan-seared fresh local trout, lemon caper butter & seasonal garden vegetables" },
+        { name: "Chef’s Slow-Braised Beef Medallions", desc: "Rich red-wine reduction, creamy mashed potatoes & crisp market greens" },
+        { name: "Le Pristine Flame-Grilled Chicken Supreme", desc: "Marinated highland chicken breast, rosemary jus & golden lyonnaise potatoes" },
+        { name: "Swahili Coconut Fish / Vegetable Curry", desc: "Aromatic coastal spices, steamed basmati rice & house chutney" }
+      ],
+      breakfast: [
+        { name: "Full Seremwai Garden English Breakfast", desc: "Farm eggs to order, gourmet sausages, grilled tomato, toast, fresh juice & Nyeri AA coffee" },
+        { name: "Artisan Kenyan AA Coffee & Pastry Pairing", desc: "Freshly brewed Central Highlands espresso/cappuccino with warm house pastries" },
+        { name: "Tropical Fruit, Honey & Greek Yogurt Bowl", desc: "Ripe highland fruits, crunchy granola & pure local blossom honey" },
+        { name: "Signature Kenyan Masala Dawa & Samosas", desc: "Fresh ginger, honey, lime & crisp spiced beef or vegetable samosas" }
+      ],
+      events: [
+        { name: "Executive Day Conference Package", desc: "10 AM & 4 PM garden teas, chef’s hot lunch buffet, Wi-Fi, flipchart & projector" },
+        { name: "Private Family Celebration & Lawn Dining", desc: "Reserved garden terrace table styling + custom 3-course group menu" },
+        { name: "VIP Chauffeur / Mt. Kenya Excursion Packed Lunch", desc: "Prepared fresh at dawn for guests heading to Aberdare or Mt. Kenya National Park" }
+      ]
+    };
+
+    const chosenItems = [];
+
+    function filterMenu(cat, btn) {
+      document.querySelectorAll(".menu-tab").forEach((b) => b.classList.remove("active"));
+      if (btn) btn.classList.add("active");
+      const items = MENU_DATA[cat] || MENU_DATA.signatures;
+      document.getElementById("menu-container").innerHTML = items
+        .map(
+          (item) => `
+          <div class="dish">
+            <div>
+              <strong>${item.name}</strong>
+              <span class="desc">${item.desc}</span>
+            </div>
+            <button type="button" onclick="selectInquiry('${item.name.replace(/'/g, "\\'")}', null)">+ Select</button>
+          </div>
+        `
+        )
+        .join("");
+    }
+
+    function selectInquiry(label, typeOverride) {
+      if (!chosenItems.includes(label)) chosenItems.push(label);
+      if (typeOverride) {
+        document.getElementById("lp-type").value = typeOverride;
+      }
+      document.getElementById("selected-summary").textContent =
+        "Selected for your inquiry: " + chosenItems.join(" · ");
+      document.getElementById("concierge").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function sendLePristineWhatsApp() {
+      const name = document.getElementById("lp-name").value.trim() || "Guest";
+      const rType = document.getElementById("lp-type").value;
+      const when = document.getElementById("lp-when").value.trim() || "Upcoming visit";
+      const guests = document.getElementById("lp-guests").value;
+      const extras = chosenItems.length ? `\nSelected: ${chosenItems.join(", ")}` : "";
+      const msg =
+        `Hello Le Pristine Hotel!\n` +
+        `I would like to book a ${rType}.\n` +
+        `• Name: ${name}\n` +
+        `• Date/Time: ${when}\n` +
+        `• Party: ${guests}${extras}\n` +
+        `Please confirm availability. Thank you!`;
+      window.open("https://wa.me/254701966937?text=" + encodeURIComponent(msg), "_blank");
+    }
+
+    filterMenu("signatures", document.querySelector(".menu-tab"));
+  </script>
+</body>
+</html>

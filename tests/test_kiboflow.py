@@ -59,6 +59,7 @@ def test_static_exporter_creates_pages_bundle(tmp_path: Path) -> None:
     assert (out / "index.html").is_file()
     assert (out / "ops" / "index.html").is_file()
     assert (out / "demos" / "hospitality" / "index.html").is_file()
+    assert (out / "le-pristine" / "index.html").is_file()
     assert (out / "static_data" / "bootstrap.json").is_file()
     assert (out / ".nojekyll").is_file()
 
