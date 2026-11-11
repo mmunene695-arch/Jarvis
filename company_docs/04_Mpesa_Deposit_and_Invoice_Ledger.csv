@@ -1,0 +1,4 @@
+Invoice_Number,Issue_Date,Client_Name,Package,Total_KES,Deposit_50Pct_KES,Balance_50Pct_KES,Monthly_Retainer_KES,Payment_Channel,Status,Price_Lock_Until
+KF-2026-101,2026-11-11,Nyeri Kenchic Inn (Prepared Quote),7-Day Mobile & WhatsApp Sprint,45000,22500,22500,5000,M-Pesa 0729 213641,Ready to Issue on Call,2026-11-13
+KF-2026-102,2026-11-11,Le Pristine Hotel (Prepared Quote),Hospitality & WhatsApp Booking System,65000,32500,32500,9500,M-Pesa 0729 213641,Ready to Issue on Call,2026-11-13
+KF-2026-103,2026-11-11,Gitandara Gardens Hotel (Prepared Quote),Hospitality & Events Conversion Sprint,55000,27500,27500,7500,M-Pesa 0729 213641,Ready to Issue on Call,2026-11-13

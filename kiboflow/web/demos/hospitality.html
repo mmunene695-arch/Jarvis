@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chania Highlands Hotel &amp; Grill — Live Mobile Concept</title>
+  <style>
+    :root { --primary:#b45309; --dark:#1c1917; --cream:#fffbeb; --green:#15803d; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#fafaf9; color:var(--dark); padding-bottom:76px; overflow-x:hidden; }
+    .concept-ribbon { background:#111827; color:#f9fafb; font-size:0.78rem; text-align:center; padding:8px 12px; }
+    .concept-ribbon a { color:#34d399; font-weight:700; text-decoration:none; }
+    .hero { background:linear-gradient(155deg,#1c1917,#451a03); color:#fff; padding:34px 18px 28px; }
+    .wrap { max-width:920px; margin:0 auto; }
+    .tag { display:inline-block; background:rgba(245,158,11,0.22); color:#fcd34d; padding:4px 10px; border-radius:999px; font-size:0.76rem; font-weight:700; }
+    h1 { margin:10px 0 8px; font-size:clamp(1.7rem,5vw,2.5rem); line-height:1.15; }
+    .quick-bar { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:18px; }
+    .quick-item { background:rgba(255,255,255,0.1); padding:10px; border-radius:10px; font-size:0.8rem; }
+    .quick-item strong { display:block; color:#fcd34d; font-size:0.9rem; }
+    .section { padding:24px 18px; max-width:920px; margin:0 auto; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; }
+    .item-card { background:#fff; border:1px solid #e7e5e4; border-radius:12px; padding:16px; display:flex; justify-content:space-between; align-items:center; gap:10px; box-shadow:0 4px 12px rgba(0,0,0,0.03); }
+    .price { font-weight:800; color:var(--primary); font-size:1rem; }
+    .add-btn { background:var(--dark); color:#fff; border:0; border-radius:8px; padding:8px 12px; font-weight:700; cursor:pointer; font-size:0.82rem; }
+    .booking-box { background:#fff; border:2px solid #f59e0b; border-radius:14px; padding:18px; margin-top:12px; }
+    .row { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px; margin-bottom:10px; }
+    input, select { width:100%; padding:10px; border:1px solid #d6d3d1; border-radius:8px; font-size:0.92rem; }
+    .sticky-cta { position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid #e7e5e4; padding:10px 14px; display:flex; gap:10px; justify-content:center; z-index:40; }
+    .cta-call { flex:1; max-width:220px; background:#1c1917; color:#fff; text-align:center; padding:12px; border-radius:10px; text-decoration:none; font-weight:700; font-size:0.9rem; }
+    .cta-wa { flex:1.4; max-width:300px; background:var(--green); color:#fff; text-align:center; padding:12px; border-radius:10px; text-decoration:none; font-weight:700; font-size:0.9rem; border:0; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="concept-ribbon">
+    Design Concept by <strong>KiboFlow Studio</strong> (Mark Munene · +254 729 213641) · <a href="../">Back to KiboFlow</a>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="tag">Open Today 6:30 AM – 10:30 PM · Nyeri Town</span>
+      <h1>Fresh Grill, Executive Rooms &amp; Garden Dining in One Tap.</h1>
+      <p style="color:#e7e5e4; margin:0; font-size:0.95rem;">
+        Order takeaway platters, reserve a family garden table, or check room availability instantly via WhatsApp—zero waiting on hold.
+      </p>
+      <div class="quick-bar">
+        <div class="quick-item"><strong>📞 Direct Desk</strong>0729 213 641</div>
+        <div class="quick-item"><strong>📍 Location</strong>Nyeri Town Center</div>
+        <div class="quick-item"><strong>⚡ Fast M-Pesa</strong>Till &amp; Paybill Ready</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2 style="margin:0 0 12px;">Popular Grill &amp; Kitchen Specials</h2>
+    <div class="grid">
+      <div class="item-card">
+        <div>
+          <strong>Full Flame-Grilled Chicken Platter</strong>
+          <div style="font-size:0.82rem; color:#57534e;">Served with masala chips, kachumbari &amp; house sauce</div>
+          <div class="price">KES 1,450</div>
+        </div>
+        <button class="add-btn" onclick="addItem('Full Grilled Chicken Platter (KES 1,450)')">+ Add</button>
+      </div>
+      <div class="item-card">
+        <div>
+          <strong>Chania Mbuzi Choma Family Board (1kg)</strong>
+          <div style="font-size:0.82rem; color:#57534e;">Slow-roasted goat ribs, ugali &amp; sautéed greens</div>
+          <div class="price">KES 1,600</div>
+        </div>
+        <button class="add-btn" onclick="addItem('1kg Mbuzi Choma Board (KES 1,600)')">+ Add</button>
+      </div>
+      <div class="item-card">
+        <div>
+          <strong>Deluxe En-Suite Room (Bed &amp; Breakfast)</strong>
+          <div style="font-size:0.82rem; color:#57534e;">Hot shower, high-speed Wi-Fi, secure parking &amp; full breakfast</div>
+          <div class="price">KES 4,500 / night</div>
+        </div>
+        <button class="add-btn" onclick="addItem('Deluxe B&B Room (KES 4,500/night)')">+ Add</button>
+      </div>
+      <div class="item-card">
+        <div>
+          <strong>Garden Conference &amp; Event Package</strong>
+          <div style="font-size:0.82rem; color:#57534e;">10 AM tea, buffet lunch, projector &amp; PA system per delegate</div>
+          <div class="price">KES 2,200 / pax</div>
+        </div>
+        <button class="add-btn" onclick="addItem('Conference Day Package (KES 2,200/pax)')">+ Add</button>
+      </div>
+    </div>
+
+    <div class="booking-box" id="reserve">
+      <h3 style="margin:0 0 8px;">1-Tap WhatsApp Order &amp; Reservation</h3>
+      <p style="margin:0 0 12px; font-size:0.86rem; color:#57534e;" id="cart-summary">
+        Selected items: None yet (tap + Add above, or book a table/room directly).
+      </p>
+      <div class="row">
+        <input type="text" id="guest-name" placeholder="Your Name" />
+        <select id="booking-type">
+          <option value="Food Pre-Order / Pickup">Food Pre-Order / Pickup</option>
+          <option value="Garden Table Reservation">Garden Table Reservation</option>
+          <option value="Room Booking">Overnight Room Booking</option>
+          <option value="Group / Event Inquiry">Group / Event Inquiry</option>
+        </select>
+        <input type="text" id="booking-time" placeholder="Today 1:00 PM / Check-in Date" />
+      </div>
+      <button class="cta-wa" style="max-width:none; width:100%;" onclick="sendWhatsAppBooking()">
+        Send Order / Reservation on WhatsApp →
+      </button>
+    </div>
+  </section>
+
+  <div class="sticky-cta">
+    <a href="tel:+254729213641" class="cta-call">📞 Call Now</a>
+    <button class="cta-wa" onclick="sendWhatsAppBooking()">💬 Book on WhatsApp</button>
+  </div>
+
+  <script>
+    const cart = [];
+    function addItem(label) {
+      cart.push(label);
+      document.getElementById("cart-summary").textContent = "Selected (" + cart.length + "): " + cart.join(", ");
+    }
+    function sendWhatsAppBooking() {
+      const name = document.getElementById("guest-name").value.trim() || "Guest";
+      const kind = document.getElementById("booking-type").value;
+      const when = document.getElementById("booking-time").value.trim() || "Today";
+      const items = cart.length ? "\nItems: " + cart.join(", ") : "";
+      const msg = `Hello! I'd like to make a ${kind}.\nName: ${name}\nWhen: ${when}${items}\n(Sent via KiboFlow Mobile Demo)`;
+      window.open("https://wa.me/254729213641?text=" + encodeURIComponent(msg), "_blank");
+    }
+  </script>
+</body>
+</html>

@@ -20,6 +20,8 @@ htmlcov/
 .env
 config.json
 jarvis-data/
+kiboflow-data/
+dist_pages/
 *.log
 audit.jsonl
 notes.json

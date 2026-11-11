@@ -56,6 +56,7 @@ all = [
 
 [project.scripts]
 jarvis = "jarvis.cli:main"
+kiboflow = "kiboflow.__main__:main"
 
 [project.urls]
 Homepage = "https://github.com/mmunene695-arch/Jarvis"
@@ -63,10 +64,11 @@ Issues = "https://github.com/mmunene695-arch/Jarvis/issues"
 Documentation = "https://github.com/mmunene695-arch/Jarvis#readme"
 
 [tool.setuptools]
-packages = ["jarvis", "jarvis.features", "jarvis.integrations"]
+packages = ["jarvis", "jarvis.features", "jarvis.integrations", "kiboflow"]
 
 [tool.setuptools.package-data]
 jarvis = ["py.typed"]
+kiboflow = ["web/*.html", "web/*.css", "web/*.js", "web/demos/*.html"]
 
 [tool.pytest.ini_options]
 minversion = "7.0"

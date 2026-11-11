@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nyeri Premier Care &amp; Diagnostics — Live Mobile Concept</title>
+  <style>
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#f8fafc; color:#0f172a; padding-bottom:76px; overflow-x:hidden; }
+    .ribbon { background:#0f172a; color:#f8fafc; font-size:0.78rem; text-align:center; padding:8px 12px; }
+    .ribbon a { color:#38bdf8; font-weight:700; text-decoration:none; }
+    .hero { background:linear-gradient(145deg,#0c4a6e,#0284c7); color:#fff; padding:34px 18px 28px; }
+    .wrap { max-width:900px; margin:0 auto; }
+    .pill { display:inline-block; background:rgba(255,255,255,0.18); padding:4px 10px; border-radius:999px; font-size:0.76rem; font-weight:700; }
+    h1 { margin:10px 0 8px; font-size:clamp(1.7rem,5vw,2.4rem); line-height:1.15; }
+    .section { max-width:900px; margin:0 auto; padding:24px 18px; }
+    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
+    .card { background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:16px; }
+    .form-box { background:#fff; border:2px solid #0284c7; border-radius:14px; padding:18px; margin-top:20px; }
+    input, select { width:100%; padding:10px; border:1px solid #cbd5e1; border-radius:8px; margin-bottom:10px; font-size:0.92rem; }
+    .wa-btn { width:100%; background:#16a34a; color:#fff; border:0; padding:12px; border-radius:10px; font-weight:700; font-size:0.95rem; cursor:pointer; }
+    .sticky { position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid #e2e8f0; padding:10px 14px; display:flex; gap:10px; justify-content:center; }
+    .sticky a { flex:1; max-width:240px; text-align:center; padding:12px; border-radius:10px; font-weight:700; text-decoration:none; font-size:0.9rem; }
+  </style>
+</head>
+<body>
+  <div class="ribbon">
+    Design Concept by <strong>KiboFlow Studio</strong> (Mark Munene · +254 729 213641) · <a href="../">Back to KiboFlow</a>
+  </div>
+  <header class="hero">
+    <div class="wrap">
+      <span class="pill">SHA / Major Insurances Accepted · Open 24/7 Emergency</span>
+      <h1>Book a Doctor, Lab Test, or Dental Slot in 30 Seconds.</h1>
+      <p style="margin:0; opacity:0.92;">Skip waiting-room queues. Confirm your appointment slot on WhatsApp before leaving home.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2 style="margin:0 0 12px;">Transparent Outpatient &amp; Diagnostic Services</h2>
+    <div class="cards">
+      <div class="card">
+        <strong>General Physician Consultation</strong>
+        <p style="font-size:0.84rem; color:#475569;">Same-day review, vitals check &amp; digital prescription</p>
+        <strong style="color:#0284c7;">KES 1,000</strong>
+      </div>
+      <div class="card">
+        <strong>Full Lab &amp; Ultrasound Diagnostics</strong>
+        <p style="font-size:0.84rem; color:#475569;">Results ready in 45 minutes · WhatsApp PDF report option</p>
+        <strong style="color:#0284c7;">From KES 800</strong>
+      </div>
+      <div class="card">
+        <strong>Dental Checkup &amp; Scaling</strong>
+        <p style="font-size:0.84rem; color:#475569;">Painless modern chair · Insurance &amp; M-Pesa accepted</p>
+        <strong style="color:#0284c7;">KES 2,500</strong>
+      </div>
+    </div>
+
+    <div class="form-box">
+      <h3 style="margin:0 0 10px;">Confirm Your Clinic Slot via WhatsApp</h3>
+      <input type="text" id="pt-name" placeholder="Patient Name" />
+      <select id="pt-dept">
+        <option>General Consultation</option>
+        <option>Laboratory / Ultrasound</option>
+        <option>Dental Clinic</option>
+        <option>Pediatrics / Antenatal</option>
+      </select>
+      <input type="text" id="pt-slot" placeholder="Preferred Day &amp; Time (e.g. Today 2:30 PM)" />
+      <button class="wa-btn" onclick="bookClinic()">Confirm Appointment on WhatsApp →</button>
+    </div>
+  </section>
+
+  <div class="sticky">
+    <a href="tel:+254729213641" style="background:#dc2626; color:#fff;">🚑 Emergency Call</a>
+    <a href="https://wa.me/254729213641?text=Hello%2C%20I%27d%20like%20to%20book%20a%20clinic%20appointment." target="_blank" style="background:#16a34a; color:#fff;">💬 WhatsApp Reception</a>
+  </div>
+
+  <script>
+    function bookClinic() {
+      const name = document.getElementById("pt-name").value.trim() || "Patient";
+      const dept = document.getElementById("pt-dept").value;
+      const slot = document.getElementById("pt-slot").value.trim() || "Today";
+      const text = `Hello Reception, I'd like to book an appointment.\nPatient: ${name}\nDepartment: ${dept}\nPreferred Time: ${slot}`;
+      window.open("https://wa.me/254729213641?text=" + encodeURIComponent(text), "_blank");
+    }
+  </script>
+</body>
+</html>
