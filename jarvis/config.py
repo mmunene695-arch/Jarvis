@@ -49,16 +49,12 @@ class JarvisConfig:
     follow_up_seconds: float = 60.0
     response_target_seconds: float = 4.0
     memory_turns: int = 20
-    require_confirmation: bool = True
     screen_capture_confirmation: bool = True
     cloud_answers: bool = True
     research_enabled: bool = True
     tts_backend: str = "auto"
-    stt_backend: str = "auto"
     gestures_enabled: bool = True
     gesture_dwell_seconds: float = 1.2
-    startup_enabled: bool = False
-    log_level: str = "INFO"
     data_dir: Path = field(default_factory=default_data_dir)
 
     # ------------------------------------------------------------------
@@ -90,17 +86,6 @@ class JarvisConfig:
         data["data_dir"] = str(self.data_dir)
         return data
 
-    def with_overrides(self, **changes: Any) -> JarvisConfig:
-        """Return a copy of this configuration with ``changes`` applied."""
-        unknown = set(changes) - {f.name for f in fields(self)}
-        if unknown:
-            raise ConfigError(f"unknown configuration key(s): {', '.join(sorted(unknown))}")
-        return JarvisConfig(**{**self.as_dict_with_paths(), **changes})
-
-    def as_dict_with_paths(self) -> dict[str, Any]:
-        data = asdict(self)
-        return data
-
 
 _ENV_MAP: dict[str, str] = {
     "JARVIS_ASSISTANT_NAME": "assistant_name",
@@ -108,16 +93,12 @@ _ENV_MAP: dict[str, str] = {
     "JARVIS_FOLLOW_UP_SECONDS": "follow_up_seconds",
     "JARVIS_RESPONSE_TARGET_SECONDS": "response_target_seconds",
     "JARVIS_MEMORY_TURNS": "memory_turns",
-    "JARVIS_REQUIRE_CONFIRMATION": "require_confirmation",
     "JARVIS_SCREEN_CONFIRMATION": "screen_capture_confirmation",
     "JARVIS_CLOUD_ANSWERS": "cloud_answers",
     "JARVIS_RESEARCH": "research_enabled",
     "JARVIS_TTS": "tts_backend",
-    "JARVIS_STT": "stt_backend",
     "JARVIS_GESTURES": "gestures_enabled",
     "JARVIS_GESTURE_DWELL_SECONDS": "gesture_dwell_seconds",
-    "JARVIS_STARTUP": "startup_enabled",
-    "JARVIS_LOG_LEVEL": "log_level",
 }
 
 
@@ -176,9 +157,8 @@ def _validate(config: JarvisConfig) -> JarvisConfig:
         raise ConfigError("gesture_dwell_seconds must be greater than zero")
     if config.gesture_dwell_seconds > 10:
         raise ConfigError("gesture_dwell_seconds must be 10 seconds or less")
-    for key in ("tts_backend", "stt_backend"):
-        if getattr(config, key) not in {"auto", "cloud", "local", "off"}:
-            raise ConfigError(f"{key} must be one of auto, cloud, local, off")
+    if config.tts_backend not in {"auto", "cloud", "local", "off"}:
+        raise ConfigError("tts_backend must be one of auto, cloud, local, off")
     return config
 
 

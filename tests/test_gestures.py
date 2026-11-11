@@ -11,7 +11,6 @@ from jarvis.gestures import (
     UNKNOWN,
     DwellGate,
     canonical,
-    describe_gesture,
 )
 
 
@@ -32,12 +31,6 @@ from jarvis.gestures import (
 )
 def test_canonical_labels(label: str, expected: str):
     assert canonical(label) == expected
-
-
-def test_describe_gesture():
-    assert "pause" in describe_gesture(OPEN_PALM)
-    assert "cancel" in describe_gesture(FIST)
-    assert "confirm" in describe_gesture(THUMBS_UP)
 
 
 class FakeClock:

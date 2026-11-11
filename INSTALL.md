@@ -258,7 +258,7 @@ Run all three, in an activated environment:
 ```bash
 jarvis --version        # JARVIS 0.2.0
 jarvis --doctor         # JSON report of capabilities and integrations
-python -m pytest -q     # 254 passed (fully offline)
+python -m pytest -q     # 253 passed (fully offline)
 ```
 
 `--doctor` output example (abridged):
@@ -296,7 +296,6 @@ jarvis --command "list notes"
 pip install -e ".[voice]"      # sounddevice, numpy, pyttsx3, vosk
 pip install -e ".[vision]"     # pillow (screen), opencv-python + mediapipe (gestures)
 pip install -e ".[bluetooth]"  # bleak
-pip install -e ".[tui]"        # prompt-toolkit
 pip install -e ".[system]"     # psutil
 pip install -e ".[all]"        # everything above
 pip install -e ".[dev]"        # pytest, pytest-cov, ruff

@@ -12,7 +12,6 @@ import subprocess
 import sys
 import urllib.parse
 import webbrowser
-from collections.abc import Iterable
 
 from ..errors import FeatureUnavailable, NotFoundError, ValidationError
 
@@ -198,7 +197,3 @@ def open_app(key: str) -> str:
     raise FeatureUnavailable(
         f"I could not start {key}. It may not be installed, or it may need to be in your PATH."
     )
-
-
-def iter_apps() -> Iterable[str]:
-    return iter(APP_REGISTRY)

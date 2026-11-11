@@ -36,8 +36,6 @@ voice = ["sounddevice>=0.4.6", "numpy>=1.23", "pyttsx3>=2.90", "vosk>=0.3.45"]
 vision = ["pillow>=10.0", "opencv-python>=4.8", "mediapipe>=0.10"]
 # Bluetooth LE scanning (read-only).
 bluetooth = ["bleak>=0.21"]
-# Full-screen terminal UI.
-tui = ["prompt-toolkit>=3.0"]
 # Better system information (battery, CPU, memory).
 system = ["psutil>=5.9"]
 dev = ["pytest>=7.4", "pytest-cov>=4.1", "ruff>=0.1"]
@@ -50,7 +48,6 @@ all = [
   "opencv-python>=4.8",
   "mediapipe>=0.10",
   "bleak>=0.21",
-  "prompt-toolkit>=3.0",
   "psutil>=5.9",
 ]
 
@@ -64,9 +61,6 @@ Documentation = "https://github.com/mmunene695-arch/Jarvis#readme"
 
 [tool.setuptools]
 packages = ["jarvis", "jarvis.features", "jarvis.integrations"]
-
-[tool.setuptools.package-data]
-jarvis = ["py.typed"]
 
 [tool.pytest.ini_options]
 minversion = "7.0"
@@ -84,4 +78,3 @@ ignore = ["E501", "B005"]
 
 [tool.coverage.run]
 source = ["jarvis"]
-omit = ["jarvis/tui.py"]

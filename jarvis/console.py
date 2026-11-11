@@ -26,7 +26,7 @@ Conversation
   exit                          leave the console
 
 Computer
-  system status                 memory, battery, CPU, disk, uptime
+  system status                 memory, battery, CPU, disk
   how much memory is free       memory only
   battery status                battery only
   cpu usage                     processor only
@@ -129,13 +129,3 @@ class ConsoleApp:
             self._write(f"jarvis> {reply.text}")
             if self.engine.pending is not None:
                 self._write("        (say yes to confirm, or no to cancel)")
-
-    def handle_line(self, command: str) -> str:
-        """Single-shot helper used by tests and the ``--command`` flag."""
-        reply = self.engine.ask(command)
-        return reply.text
-
-
-def run_console(engine: JarvisEngine | None = None, **kwargs) -> int:
-    engine = engine or JarvisEngine()
-    return ConsoleApp(engine, **kwargs).run()

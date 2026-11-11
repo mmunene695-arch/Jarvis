@@ -31,14 +31,6 @@ class NotSupportedError(FeatureUnavailable):
     """The feature is not supported on the current operating system."""
 
 
-class ConfirmationRequired(JarvisError):
-    """The action changes state and must be confirmed first."""
-
-
-class ActionDenied(JarvisError):
-    """The action is not allowed, for example a gesture creating a message."""
-
-
 class IntegrationError(JarvisError):
     """A third-party integration (Gmail, WhatsApp, Twilio) failed."""
 

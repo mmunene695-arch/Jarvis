@@ -7,7 +7,6 @@ import platform
 import shutil
 import subprocess
 import sys
-import time
 from typing import Any
 
 _WINDOWS = sys.platform.startswith("win")
@@ -250,53 +249,6 @@ def platform_report() -> str:
     )
 
 
-def uptime_seconds() -> float | None:
-    try:
-        import psutil  # type: ignore
-
-        return float(time.time() - psutil.boot_time())
-    except Exception:
-        pass
-    if sys.platform.startswith("linux"):
-        try:
-            with open("/proc/uptime", encoding="utf-8") as handle:
-                return float(handle.read().split()[0])
-        except (OSError, ValueError, IndexError):
-            pass
-    if sys.platform == "darwin":
-        out = _run(["sysctl", "-n", "kern.boottime"])
-        import re
-
-        match = re.search(r"sec\s*=\s*(\d+)", out)
-        if match:
-            return max(0.0, time.time() - int(match.group(1)))
-    if _WINDOWS:
-        try:
-            import ctypes
-
-            millis = ctypes.windll.kernel32.GetTickCount64()
-            return millis / 1000.0
-        except Exception:
-            pass
-    return None
-
-
-def uptime_report() -> str:
-    seconds = uptime_seconds()
-    if seconds is None:
-        return "I could not determine how long this computer has been running."
-    hours, remainder = divmod(int(seconds), 3600)
-    minutes = remainder // 60
-    days, hours = divmod(hours, 24)
-    bits = []
-    if days:
-        bits.append(f"{days} day{'s' if days != 1 else ''}")
-    if hours:
-        bits.append(f"{hours} hour{'s' if hours != 1 else ''}")
-    bits.append(f"{minutes} minute{'s' if minutes != 1 else ''}")
-    return "This computer has been up for " + ", ".join(bits) + "."
-
-
 def full_report() -> str:
     return "\n".join(
         [
@@ -305,6 +257,5 @@ def full_report() -> str:
             battery_report(),
             cpu_report(),
             disk_report(),
-            uptime_report(),
         ]
     )

@@ -61,14 +61,6 @@ class NoteStore:
         results.sort(key=lambda pair: pair[0], reverse=True)
         return [note for _, note in results]
 
-    def delete(self, note_id: str) -> bool:
-        notes = self._load()
-        remaining = [n for n in notes if n.get("id") != note_id]
-        if len(remaining) == len(notes):
-            return False
-        self._store.write(remaining)
-        return True
-
     def clear(self) -> None:
         self._store.write([])
 

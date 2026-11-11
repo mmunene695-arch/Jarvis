@@ -11,12 +11,11 @@ import base64
 import json
 import os
 import socket
-import time
 import urllib.error
 import urllib.parse
 import urllib.request
 from collections.abc import Mapping
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Any
 
 from .errors import AuthenticationError, NetworkError, ValidationError
@@ -332,19 +331,3 @@ def speak(
     return audio
 
 
-@dataclass
-class TimedResult:
-    """A reply plus the time it took, for the response-time target."""
-
-    text: str
-    seconds: float
-    within_target: bool
-    target: float = 4.0
-    extra: dict[str, Any] = field(default_factory=dict)
-
-
-def timed(fn, *args: Any, target: float = 4.0, **kwargs: Any) -> TimedResult:
-    started = time.perf_counter()
-    text = fn(*args, **kwargs)
-    elapsed = time.perf_counter() - started
-    return TimedResult(text=text, seconds=elapsed, within_target=elapsed <= target, target=target)

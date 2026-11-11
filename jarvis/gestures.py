@@ -20,8 +20,6 @@ FIST = "fist"
 THUMBS_UP = "thumbs_up"
 UNKNOWN = "unknown"
 
-GESTURES = (OPEN_PALM, FIST, THUMBS_UP)
-
 _ALIASES = {
     "open palm": OPEN_PALM,
     "open_palm": OPEN_PALM,
@@ -253,7 +251,3 @@ def stop_preview() -> None:
     if _active_preview is not None:
         _active_preview.stop()
         _active_preview = None
-
-
-def preview_running() -> bool:
-    return bool(_active_preview and _active_preview.running)

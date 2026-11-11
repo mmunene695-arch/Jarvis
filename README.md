@@ -9,7 +9,7 @@ to wake it, or use the offline text console when you have no microphone or no in
   settings, volume, startup) is staged and needs an explicit *yes*.
 * **No shell** — JARVIS never runs arbitrary shell commands and never types commands
   into a terminal for you.
-* **254 passing local tests**, and they run completely offline.
+* **253 passing local tests**, and they run completely offline.
 
 ---
 
@@ -55,7 +55,7 @@ to wake it, or use the offline text console when you have no microphone or no in
 * **No arbitrary shell commands** — ever.
 
 ### Local commands
-* **Computer status** — memory, battery, CPU, free disk space, uptime.
+* **Computer status** — memory, battery, CPU and free disk space.
 * **Files** — list, search, read or create supported text files in Jarvis’s own
   `files` folder. Existing files are never overwritten; path traversal is refused.
 * **Reminders** — add or list reminders. Alerts work only while Jarvis is running and
@@ -96,7 +96,7 @@ not currently available.
 ### Web research
 * Search the web only when you explicitly ask, and get a summary **with citations**.
 * Research is **not** saved automatically — say “save this to knowledge” (or use
-  `KnowledgeBase.save_last_research()`) to store a result locally.
+  "save this to knowledge") to store a result locally.
 
 ### Optional account integrations
 Implemented in the project, but each needs your own account setup — see
@@ -286,7 +286,7 @@ features. Apple-silicon Macs: if OpenCV/MediaPipe fail to install, use
 ```bash
 jarvis --version            # JARVIS 0.2.0
 jarvis --doctor             # capabilities + integration status as JSON
-python -m pytest -q         # 254 passing tests, fully offline
+python -m pytest -q         # 253 passing tests, fully offline
 ```
 
 Full step-by-step notes, including what to do when something fails, live in
@@ -322,7 +322,6 @@ Useful entry points:
 |---|---|
 | `jarvis --console` | Offline text console (default, no microphone needed) |
 | `jarvis --voice` | Standby listening for “Hey Jarvis” |
-| `jarvis --tui` | Full-screen terminal UI (`tui` extra) |
 | `jarvis --command "system status"` | One request, then exit |
 | `jarvis --command "open github.com" --yes` | Auto-confirm the staged action |
 | `jarvis --doctor` | Capability and integration self-check (JSON) |
@@ -390,7 +389,6 @@ set, and otherwise gets a clear “here is what I can do offline” answer.
 pip install -e ".[voice]"      # sounddevice, numpy, pyttsx3, vosk
 pip install -e ".[vision]"     # pillow, opencv-python, mediapipe
 pip install -e ".[bluetooth]"  # bleak
-pip install -e ".[tui]"        # prompt-toolkit
 pip install -e ".[system]"     # psutil
 pip install -e ".[all]"        # everything above
 pip install -e ".[dev]"        # pytest, pytest-cov, ruff
@@ -402,7 +400,6 @@ pip install -e ".[dev]"        # pytest, pytest-cov, ruff
 | `vision` | screen capture + cloud analysis, camera gesture mode | “what is on my screen” explains what is missing |
 | `bluetooth` | read-only BLE device scan | scan reports the missing package |
 | `system` | exact battery/CPU/memory (uses `/proc`, `sysctl`, Win32 otherwise) | basic readings still work |
-| `tui` | full-screen console | line console instead |
 
 ---
 
@@ -448,16 +445,12 @@ Precedence: built-in defaults → `config.json` → environment variables.
 | `follow_up_seconds` | `JARVIS_FOLLOW_UP_SECONDS` | `60` | follow-up window |
 | `response_target_seconds` | `JARVIS_RESPONSE_TARGET_SECONDS` | `4` | latency target |
 | `memory_turns` | `JARVIS_MEMORY_TURNS` | `20` | short-term memory size |
-| `require_confirmation` | `JARVIS_REQUIRE_CONFIRMATION` | `true` | confirm state changes |
 | `screen_capture_confirmation` | `JARVIS_SCREEN_CONFIRMATION` | `true` | confirm each capture |
 | `cloud_answers` | `JARVIS_CLOUD_ANSWERS` | `true` | allow online answers |
 | `research_enabled` | `JARVIS_RESEARCH` | `true` | allow web research |
 | `tts_backend` | `JARVIS_TTS` | `auto` | `auto`/`cloud`/`local`/`off` |
-| `stt_backend` | `JARVIS_STT` | `auto` | `auto`/`cloud`/`local`/`off` |
 | `gestures_enabled` | `JARVIS_GESTURES` | `true` | allow gesture mode |
 | `gesture_dwell_seconds` | `JARVIS_GESTURE_DWELL_SECONDS` | `1.2` | dwell gate |
-| `startup_enabled` | `JARVIS_STARTUP` | `false` | recorded preference |
-| `log_level` | `JARVIS_LOG_LEVEL` | `INFO` | log verbosity |
 
 Set `JARVIS_OFFLINE=1` to refuse all outbound network calls (research and account
 features then explain that they need internet).
@@ -523,23 +516,22 @@ jarvis/
   gestures.py       dwell gate + local camera preview
   research.py       web search with citations
   cloud.py          online LLM, STT, TTS and vision calls (stdlib only)
-  tui.py            optional full-screen console
   features/         files, notes, reminders, knowledge, system_info, apps,
                     windows_control, bluetooth, startup
   integrations/     gmail, gmail_auth, whatsapp, twilio_client
-tests/              17 test modules, 254 tests, no network required
+tests/              17 test modules, 253 tests, no network required
 install-windows.ps1 / install-windows.cmd / install-unix.sh
 INTEGRATIONS.md     Gmail, WhatsApp and Twilio setup
 INSTALL.md          detailed per-platform installation
 ```
 
 ```bash
-python -m pytest -q               # 254 passed
+python -m pytest -q               # 253 passed
 python -m pytest -q --cov=jarvis  # coverage (needs the dev extra)
 ruff check .                      # lint (needs the dev extra)
 ```
 
-**Testing status.** The current workspace has **254 passing local tests**. They do not
+**Testing status.** The current workspace has **253 passing local tests**. They do not
 verify live Gmail, Meta, Twilio, camera or Windows-device behaviour — those paths need
 your accounts and hardware. The integration tests build the real request payloads
 against a stubbed HTTP layer, so authentication, validation and error handling are
@@ -549,24 +541,3 @@ covered without touching the network.
 
 MIT — see [LICENSE](LICENSE).
 
----
-
-## Continuous integration
-
-`.github/workflows/tests.yml` runs on every push and pull request:
-
-* **Ubuntu, Windows and macOS** × **Python 3.9 and 3.12**
-* `ruff check .`, then the full offline test suite (`JARVIS_HOME` in a temp folder,
-  `JARVIS_OFFLINE=1` so no network call can ever be required)
-* A CLI smoke test (`--version`, `--doctor`, `--command "system status"`, file create +
-  confirm + read, notes)
-* A PowerShell parse check of `install-windows.ps1` and a `sh -n` check of
-  `install-unix.sh`
-
-Reproduce it locally with:
-
-```bash
-python -m pip install -e . pytest ruff
-ruff check .
-python -m pytest -q
-```

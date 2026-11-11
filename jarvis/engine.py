@@ -57,7 +57,6 @@ class PendingAction:
     description: str
     run: Callable[[], str]
     kind: str = "generic"
-    created_at: float = field(default_factory=time.time)
 
     def confirm(self) -> str:
         return self.run()
@@ -149,13 +148,28 @@ class JarvisEngine:
         self.running = True
         self.gesture_mode = False
         self.gesture_paused = False
+        #: Called with the reply text when a background event (a reminder or a
+        #: gesture) has something to say. Set this to the speaker's ``say``.
+        self.on_reply: Callable[[str], None] | None = None
 
         self.file_manager = features.FileManager(self.config.files_dir)
         self.notes = features.NoteStore(self.config.data_dir / "notes.json")
-        self.reminders = features.ReminderStore(self.config.data_dir / "reminders.json")
+        self.reminders = features.ReminderStore(
+            self.config.data_dir / "reminders.json", on_due=self._announce_reminder
+        )
         self.knowledge = knowledge if knowledge is not None else features.KnowledgeBase(
             self.config, audit=self.audit
         )
+
+    def _announce_reminder(self, reminder: dict[str, Any]) -> None:
+        """Speak/print a reminder that has come due while JARVIS is running."""
+        text = f"Reminder: {reminder.get('text', '')}"
+        self.audit.record("reminder.fired", reminder_id=reminder.get("id"))
+        if self.on_reply is not None:
+            try:
+                self.on_reply(text)
+            except Exception:  # pragma: no cover - audio is best effort
+                pass
 
     # ------------------------------------------------------------------
     # Public API
@@ -172,10 +186,6 @@ class JarvisEngine:
             except Exception:  # pragma: no cover - audio is best effort
                 reply.spoken = False
         return reply
-
-    def handle(self, text: str, *, speak: Speaker | None = None) -> Reply:
-        """Alias for :meth:`ask`."""
-        return self.ask(text, speak=speak)
 
     def confirm(self) -> Reply:
         """Run the pending action, if any."""
@@ -499,14 +509,15 @@ class JarvisEngine:
             return Reply(features.system_info.full_report(), action="system.status")
         if re.search(r"\b(what platform|what os|operating system|which os|my platform)\b", command):
             return Reply(features.system_info.platform_report(), action="system.platform")
-        if re.search(r"\b(uptime|how long has .* been (on|running))\b", command):
-            return Reply(features.system_info.uptime_report(), action="system.uptime")
         return None
 
     # ------------------------------------------------------------------
     # Apps, windows, websites
     # ------------------------------------------------------------------
     def _open_targets(self, command: str) -> Reply | None:
+        # "open bluetooth settings" belongs to the Windows settings handler.
+        if re.search(r"\bsettings(?:\s+page)?$", command):
+            return None
         if re.search(r"\b(list|show|what) (?:my )?(available )?apps\b", command) or re.search(
             r"\bwhat apps (?:are available|can you open)\b", command
         ):
@@ -702,7 +713,7 @@ class JarvisEngine:
                 )
             self.gesture_mode = True
             self.gesture_paused = False
-            gestures.launch_preview()
+            gestures.launch_preview(self.gesture_event)
             return Reply(
                 "Gesture mode is on. The camera preview is visible and processing stays on this "
                 "computer. Open palm pauses, fist cancels, thumbs-up confirms.",

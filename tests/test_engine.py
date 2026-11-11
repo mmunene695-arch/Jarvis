@@ -319,3 +319,32 @@ def test_audit_log_records_requests(engine: JarvisEngine):
 def test_stop_command(engine: JarvisEngine):
     engine.ask("jarvis go to sleep")
     assert engine.running is False
+
+
+def test_reminder_alerts_while_running(engine: JarvisEngine):
+    spoken: list[str] = []
+    engine.on_reply = spoken.append
+    engine.reminders.add("drink water", delay_seconds=0)
+    assert engine.reminders.poll()
+    assert spoken and "drink water" in spoken[0]
+
+
+def test_gesture_mode_connects_the_camera_callback(engine: JarvisEngine, monkeypatch: pytest.MonkeyPatch):
+    captured = {}
+    monkeypatch.setattr("jarvis.gestures.available", lambda: True)
+    monkeypatch.setattr(
+        "jarvis.gestures.launch_preview",
+        lambda callback=None, dwell_seconds=1.2: captured.setdefault("cb", callback) is None,
+    )
+    monkeypatch.setattr("jarvis.gestures.stop_preview", lambda: None)
+    engine.ask("activate gesture mode")
+    assert captured["cb"] == engine.gesture_event
+
+
+def test_settings_page_is_not_treated_as_an_app(engine: JarvisEngine, monkeypatch: pytest.MonkeyPatch):
+    monkeypatch.setattr("jarvis.features.windows_control.is_windows", lambda: True)
+    monkeypatch.setattr("jarvis.features.windows_control.open_settings", lambda page: f"opened {page}")
+    reply = engine.ask("open bluetooth settings")
+    assert reply.pending is not None
+    assert "bluetooth" in reply.pending.description.lower()
+    assert "opened bluetooth" in engine.confirm().text

@@ -39,10 +39,6 @@ def test_full_report_contains_sections():
         assert fragment in report
 
 
-def test_uptime_report_is_text():
-    assert isinstance(system_info.uptime_report(), str)
-
-
 def test_human_bytes():
     assert system_info._human_bytes(512) == "512 B"
     assert system_info._human_bytes(2048) == "2.0 KB"

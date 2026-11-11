@@ -9,7 +9,7 @@
 
 .PARAMETER Extras
     Optional extra sets to install: all (default), voice, vision, bluetooth,
-    tui, system, none.
+    system, none.
 
 .PARAMETER VenvDir
     Folder for the virtual environment. Default: .venv

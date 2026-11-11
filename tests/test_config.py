@@ -17,7 +17,6 @@ def test_defaults_are_sensible():
     assert cfg.wake_word == "hey jarvis"
     assert cfg.follow_up_seconds == 60.0
     assert cfg.response_target_seconds == 4.0
-    assert cfg.require_confirmation is True
     assert cfg.research_enabled is True
 
 
@@ -92,10 +91,3 @@ def test_ensure_directories(tmp_path: Path):
     cfg.ensure_directories()
     assert cfg.files_dir.is_dir()
     assert cfg.logs_dir.is_dir()
-
-
-def test_with_overrides_rejects_unknown(tmp_path: Path):
-    cfg = JarvisConfig(data_dir=tmp_path)
-    assert cfg.with_overrides(wake_word="computer").wake_word == "computer"
-    with pytest.raises(ConfigError):
-        cfg.with_overrides(nope=1)

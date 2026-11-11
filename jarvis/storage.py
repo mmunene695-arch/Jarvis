@@ -52,12 +52,6 @@ class JsonFileStore:
                 pass
             raise
 
-    def update(self, mutator: Callable[[Any], Any]) -> Any:
-        data = self.read()
-        result = mutator(data)
-        self.write(data)
-        return result
-
     def _quarantine(self) -> None:
         try:
             os.replace(self.path, self.path.with_suffix(self.path.suffix + ".corrupt"))
