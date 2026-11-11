@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import ctypes
 import os
-import subprocess
 import sys
 
 from ..errors import NotSupportedError, ValidationError
@@ -144,8 +143,3 @@ def _volume_ptr(vtable):  # pragma: no cover
     h = _Holder()
     h.lpVtbl = ctypes.cast(vtable, ctypes.POINTER(ctypes.c_void_p))
     return ctypes.cast(ctypes.pointer(h), ctypes.c_void_p)
-
-
-def open_url_in_browser(url: str) -> str:  # pragma: no cover
-    subprocess.Popen(["cmd", "/c", "start", "", url], close_fds=True)
-    return f"Opened {url}"

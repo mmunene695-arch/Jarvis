@@ -10,13 +10,9 @@ from __future__ import annotations
 
 import time
 from dataclasses import dataclass, field
-from typing import Callable, Protocol
+from typing import Callable
 
 from .voice import FollowUpWindow, WakeWordMatcher
-
-
-class Listener(Protocol):  # pragma: no cover - structural typing
-    def listen(self, seconds: float) -> str: ...
 
 
 @dataclass
@@ -49,9 +45,6 @@ class StandbyLoop:
     @property
     def in_follow_up(self) -> bool:
         return self.window.is_open()
-
-    def seconds_left(self) -> float:
-        return self.window.remaining()
 
 
 @dataclass
@@ -92,7 +85,7 @@ class VoiceSession:
         return decision
 
     def run(self) -> None:
-        self.printer("JARVIS is in standby. Say \"hey jarvis\" to wake me. Ctrl+C to stop.")
+        self.printer('JARVIS is in standby. Say "hey jarvis" to wake me. Ctrl+C to stop.')
         try:
             while getattr(self.engine, "running", True):
                 self.step()

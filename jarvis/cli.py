@@ -31,7 +31,6 @@ def build_parser() -> argparse.ArgumentParser:
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--console", action="store_true", help="start the offline text console (default)")
     mode.add_argument("--voice", action="store_true", help="start standby voice listening")
-    mode.add_argument("--tui", action="store_true", help="start the full-screen terminal UI")
     mode.add_argument("--command", metavar="TEXT", help="run one command and exit")
     mode.add_argument("--doctor", action="store_true", help="check capabilities and configuration")
     mode.add_argument("--init-config", action="store_true", help="write a default config.json and exit")
@@ -125,14 +124,6 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command is not None:
         return _run_command(engine, args)
 
-    if args.tui:
-        try:
-            from .tui import run_tui
-        except Exception as exc:  # pragma: no cover - optional dependency
-            print(f"The terminal UI needs prompt_toolkit: {exc}", file=sys.stderr)
-            return 2
-        return run_tui(engine)
-
     if args.voice:
         return _run_voice(engine, config, args)
 
@@ -173,6 +164,7 @@ def _run_voice(engine: JarvisEngine, config: JarvisConfig, args: argparse.Namesp
         return ConsoleApp(engine).run()
 
     speaker = Speaker("off" if args.no_speak else config.tts_backend, config=config)
+    engine.on_reply = speaker.say
     session = VoiceSession(
         engine=engine,
         matcher=WakeWordMatcher(config.wake_word),

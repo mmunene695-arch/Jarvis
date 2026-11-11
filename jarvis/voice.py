@@ -10,11 +10,9 @@ import io
 import os
 import re
 import struct
-import tempfile
 import wave
 from collections.abc import Mapping
 from dataclasses import dataclass, field
-from pathlib import Path
 from typing import Any, Callable
 
 from . import cloud
@@ -317,16 +315,3 @@ def play_wav(audio: bytes) -> None:  # pragma: no cover - needs audio device
     samples = np.frombuffer(frames, dtype=np.int16)
     sd.play(samples, rate)
     sd.wait()
-
-
-def save_wav(audio: bytes, path: str | os.PathLike[str]) -> Path:
-    target = Path(path).expanduser()
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_bytes(audio)
-    return target
-
-
-def _temp_wav_path() -> Path:  # pragma: no cover - helper
-    handle, name = tempfile.mkstemp(prefix="jarvis-", suffix=".wav")
-    os.close(handle)
-    return Path(name)

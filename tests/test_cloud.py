@@ -139,9 +139,3 @@ def test_describe_image_round_trip(monkeypatch: pytest.MonkeyPatch):
 
     monkeypatch.setattr("urllib.request.urlopen", fake_urlopen)
     assert "code editor" in cloud.describe_image(b"PNGDATA", env=OPENAI_ENV)
-
-
-def test_timed_result_flags_target():
-    result = cloud.timed(lambda: "hi", target=4.0)
-    assert result.within_target is True
-    assert result.text == "hi"

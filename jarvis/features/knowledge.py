@@ -10,7 +10,6 @@ from typing import Any
 
 from .. import research as research_module
 from ..config import JarvisConfig
-from ..errors import JarvisError
 from ..storage import JsonFileStore
 
 
@@ -91,12 +90,3 @@ class KnowledgeBase:
         if self.audit is not None:
             self.audit.record("research.performed", query=query, sources=len(sources))
         return result
-
-    def save_last_research(self, title: str | None = None) -> dict[str, Any]:
-        if not self.last_research:
-            raise JarvisError("There is no research result to save yet.")
-        return self.add(
-            title or f"Research: {self.last_research['query']}",
-            self.last_research["summary"],
-            sources=self.last_research["sources"],
-        )

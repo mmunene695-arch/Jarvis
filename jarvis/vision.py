@@ -97,7 +97,3 @@ def analyse(image_bytes: bytes, *, prompt: str = "Describe what is on this scree
             "JARVIS_VISION_API_KEY. See INTEGRATIONS.md."
         )
     return cloud.describe_image(image_bytes, prompt=prompt, env=os.environ if env is None else env)
-
-
-def describe_screen(prompt: str = "Describe what is on this screen concisely.") -> str:
-    return analyse(capture_screen(), prompt=prompt)
