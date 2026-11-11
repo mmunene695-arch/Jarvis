@@ -20,10 +20,24 @@ This file is the receipt. Every decision, the reasoning, and what would make me 
 **Why:** Kenyan creators chronically underprice. KES 800 for a CV is ~2 hours of work and reads as *professional*; KES 200 reads as desperate and attracts time-wasters. The business-plan tier at KES 3,500 exists because funding is a KES 50,000+ outcome — the price is trivial against the value.
 **Reverse if:** 0 sales after 40 DMs → drop to KES 500 for the first 10 customers as a launch price, then raise.
 
-## D4 — Payment rail: **M-Pesa Till (Buy Goods), free**
-**Decision:** Apply for a Lipa na M-Pesa **Till** number on Day 1. Use your personal M-Pesa number for the first 1–3 days until it's approved.
-**Why:** A Till is free, instant, and every Kenyan trusts it. A Paybill costs KES 100/month and needs more paperwork. Card gateways (Paystack/Flutterwave) take 1–5 days of KYC — wrong side of your 2-week deadline.
-**Reverse if:** You're already selling 20+ orders/day → then migrate to automated checkout.
+## D4 — Payment rail: **personal M-Pesa number** (Send Money), upgrade to a Till later
+**Decision:** Customers **Send Money** to your own M-Pesa number. No Till, no Paybill, no gateway.
+**Why:** You chose this, and it is the right call for week one. A Till is free but takes 1–3 working days to approve — and waiting on paperwork is how people lose the two weeks they had. A Paybill costs KES 100/month, and card gateways (Paystack/Flutterwave/IntaSend) need 1–5 days of KYC plus business registration. All three are the wrong side of your deadline. Send Money is instant, free, has zero setup, and is completely normal practice in Kenya — nobody will blink.
+**The one risk:** your daily and per-transaction limits are lower on a personal line. If you expect to receive over KES 70,000/day or hold over KES 100,000, visit a Safaricom shop in Nyeri with your National ID and raise your account tier.
+**Reverse when** (not if) any of these becomes true:
+- You are handling more than ~20 orders a day → get the free Till.
+- You want to look established to a business client → get the free Till.
+- A customer's employer or a fund requires a business payee → get a Paybill.
+The switch is a one-line change: set `"payment_mode": "till"` in `brand/config.json`, fill in `till` and `till_name`, re-run `python3 business/ops/setup.py`. The landing page rewrites itself.
+
+## D13 — Capital: **KES 0**, and that is genuinely fine
+**Decision:** Spend nothing until the business has paid for it.
+**Why:** You have no capital to deploy, and this model was chosen partly because it needs none. The only unavoidable cost is data (roughly KES 100/day). Everything else — Canva free tier, WhatsApp Business, Google Drive, Facebook groups, TikTok — is free. Anyone telling you that you must buy a course, a "starter pack", a mentorship or a website before you can earn is selling you something.
+**Consequences I have already built into the plan:**
+- Business name registration (≈KES 1,000) on Day 10 is now **conditional on revenue**, not scheduled.
+- No paid boosting anywhere in weeks 1–2. Rule M2 (reinvest KES 1,500) only triggers *after* KES 10,000 is banked.
+- Flyers are optional — your phone and your voice are enough.
+**Reverse when:** you have KES 1,000 of profit sitting idle → register the business name; that is the first thing money should buy.
 
 ## D5 — Delivery channel: **WhatsApp + Google Drive**
 **Decision:** Everything is delivered over WhatsApp; files live in Google Drive (folders already created).
@@ -73,9 +87,13 @@ These need your input, and the business cannot go live without them:
 
 | # | What I need | Where it goes |
 |---|---|---|
-| 1 | Your full name + brand name (I defaulted to **KaziPesa Digital**) | `brand/brand-kit.md`, landing page |
-| 2 | Your WhatsApp number (07xx) | Landing page CTA, all scripts |
-| 3 | Your M-Pesa **Till** number (or confirmation to use your personal number for now) | Landing page payment box |
-| 4 | Confirmation you have: smartphone, National ID, KRA PIN (or will get one) | `legal/compliance.md` |
+| 1 | Your full name (brand name is settled: **KaziPesa Digital**) | `brand/config.json` → `name` |
+| 2 | Your WhatsApp / M-Pesa number (07xx) — **the number must be registered to your own ID** | `brand/config.json` → `whatsapp` and `personal_number` |
+| 3 | The name that appears on your M-Pesa (e.g. "[YOUR MPESA NAME]") | `brand/config.json` → `mpesa_registered_name` |
+| 4 | Confirmation you have a smartphone, National ID and a KRA PIN (or will get one) | `legal/compliance.md` |
+
+Then run `python3 business/ops/setup.py` once and every file updates itself.
+
+**A note on #2:** the whole business runs on that one number. Check it is Safaricom, registered in your own name, and that you can receive. If it is not registered to you, sort that out before you take a single payment — it is the one thing that can block cash out.
 
 Everything else is built, ready, and waiting.

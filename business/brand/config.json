@@ -2,8 +2,14 @@
   "brand": "KaziPesa Digital",
   "name": "[YOUR NAME]",
   "whatsapp": "07XX XXX XXX",
-  "till": "ASK ME",
-  "till_name": "[YOUR MPESA NAME]",
+
+  "payment_mode": "personal",
+  "personal_number": "07XX XXX XXX",
+  "mpesa_registered_name": "[YOUR MPESA NAME]",
+  "till": "",
+  "till_name": "",
+
   "town": "Nyeri",
-  "tagline": "Kazi leo. Pesa leo."
+  "tagline": "Kazi leo. Pesa leo.",
+  "_comment": "payment_mode: 'personal' = customers Send Money to your own M-Pesa number (start here, free, instant). Switch to 'till' and fill in 'till' + 'till_name' when you have a Lipa na M-Pesa Till. Then re-run: python3 business/ops/setup.py"
 }

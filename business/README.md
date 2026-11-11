@@ -67,7 +67,7 @@ Free lead magnet: **"7 CV Mistakes That Cost You the Interview"** — 1 page, gi
 
 **Floor target: KES 10,000 by Day 14. Stretch: KES 25,000.**
 
-Your only costs: data bundles (~KES 100/day = KES 1,400) and an optional M-Pesa Paybill (KES 100/month — the **Till is free**, use that).
+**Starting capital: KES 0.** Your only cost is data — roughly KES 100/day, about KES 1,400 over the fortnight. Canva, WhatsApp Business, Google Drive, Facebook and TikTok are all free. Nothing in the plan requires you to spend money before the business has earned it.
 
 ---
 

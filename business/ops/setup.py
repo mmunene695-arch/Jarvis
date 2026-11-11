@@ -48,6 +48,57 @@ def whatsapp_int(raw: str) -> str:
     return "254700000000"
 
 
+def payment_tokens(cfg: dict, brand: str, name: str, phone: str) -> dict[str, str]:
+    """Build the payment block for the landing page.
+
+    Two supported modes, because most Kenyan micro-sellers start before they
+    have a Till number:
+      "personal" — Send Money to the owner's own M-Pesa number (free, instant,
+                   normal practice; upgrade later)
+      "till"     — Lipa na M-Pesa Buy Goods Till number (free to register)
+    """
+    mode = (cfg.get("payment_mode") or "till").strip().lower()
+    till = (cfg.get("till") or "").strip()
+    till_name = (cfg.get("till_name") or "").strip()
+    personal = (cfg.get("personal_number") or phone).strip()
+    mpesa_name = (cfg.get("mpesa_registered_name") or name).strip()
+
+    if mode == "till" and till and "ASK ME" not in till.upper():
+        return {
+            "{{PAY_TITLE}}": "Lipa na M-Pesa — Till Number",
+            "{{PAY_NUMBER}}": till,
+            "{{PAY_NAME}}": till_name or mpesa_name,
+            "{{PAY_STEPS}}": "".join([
+                "<li>Go to <b>M-Pesa</b> → <b>Lipa na M-Pesa</b> → <b>Buy Goods and Services</b></li>",
+                f"<li>Enter Till Number <b>{till}</b></li>",
+                "<li>Enter the amount</li>",
+                "<li>Enter your M-Pesa PIN and confirm</li>",
+                "<li>Screenshot the confirmation and send it on WhatsApp 👇</li>",
+            ]),
+            "{{PAY_FOOTER}}": (
+                f"Payments via M-Pesa Till {till}. Delivery on WhatsApp. "
+                "Full refunds, no questions asked."
+            ),
+        }
+
+    return {
+        "{{PAY_TITLE}}": "Send Money — M-Pesa",
+        "{{PAY_NUMBER}}": personal,
+        "{{PAY_NAME}}": mpesa_name,
+        "{{PAY_STEPS}}": "".join([
+            "<li>Go to <b>M-Pesa</b> → <b>Send Money</b></li>",
+            f"<li>Enter phone number <b>{personal}</b></li>",
+            "<li>Enter the amount</li>",
+            "<li>Enter your M-Pesa PIN and confirm</li>",
+            "<li>Screenshot the confirmation and send it on WhatsApp 👇</li>",
+        ]),
+        "{{PAY_FOOTER}}": (
+            f"Payments via M-Pesa to {personal} ({mpesa_name}). Delivery on WhatsApp. "
+            "Full refunds, no questions asked."
+        ),
+    }
+
+
 def build_map(cfg: dict) -> dict[str, str]:
     brand = cfg.get("brand", "KaziPesa Digital")
     name = cfg.get("name", "[YOUR NAME]")
@@ -69,6 +120,8 @@ def build_map(cfg: dict) -> dict[str, str]:
         "[TILL]": till,
         "[YOUR MPESA NAME]": till_name,
         "[BRAND]": brand,
+        "[PAY_TO]": payment_tokens(cfg, brand, name, phone)["{{PAY_TITLE}}"].replace(
+            " — ", ": ") + " " + payment_tokens(cfg, brand, name, phone)["{{PAY_NUMBER}}"],
         # landing page tokens
         "{{BRAND}}": brand,
         "{{NAME}}": name,
@@ -88,6 +141,7 @@ def build_map(cfg: dict) -> dict[str, str]:
         "{{WA_FREE}}": wa("Hi! Please send me the free guide: 7 CV Mistakes."),
         "{{WA_PAID}}": wa(f"Hi {brand}! I've paid via M-Pesa. Screenshot attached. My order: "),
         "{{WA_ORDERED}}": wa(f"Hi {brand}! I just placed an order on your page."),
+        **payment_tokens(cfg, brand, name, phone),
     }
 
 
@@ -107,12 +161,18 @@ def revert(snapshot: dict[str, str]) -> None:
     """
     if not snapshot:
         return
+    # Longest values first: reverting "0712 345 678" before "0712 345 678 (Wanjiku)"
+    # would otherwise corrupt the longer string.
+    ordered = sorted(
+        ((p, v) for p, v in snapshot.items() if v and v != p and len(v) >= MIN_REVERT_LEN),
+        key=lambda item: len(item[1]),
+        reverse=True,
+    )
     for path in target_files():
         text = path.read_text(encoding="utf-8")
         new = text
-        for placeholder, value in snapshot.items():
-            if value and value != placeholder and len(value) >= MIN_REVERT_LEN:
-                new = new.replace(value, placeholder)
+        for placeholder, value in ordered:
+            new = new.replace(value, placeholder)
         if new != text:
             path.write_text(new, encoding="utf-8")
             print(f"  reverted  {path.relative_to(BUSINESS)}")

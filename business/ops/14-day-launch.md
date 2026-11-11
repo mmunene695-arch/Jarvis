@@ -83,7 +83,7 @@ Daily rhythm: **3 hours.** 30 DMs. 2 Status posts. 2 videos. 30 minutes learning
 - 🎯 **Goal: 2 upsells**
 
 ### Day 10 (Fri 20 Nov) — Credibility
-- [ ] **Register the business name** on eCitizen (KES ~1,000) + confirm KRA PIN
+- [ ] **If** you have KES 1,000 of profit sitting there → register the business name on eCitizen (~KES 1,000). **If not, skip it** — no capital means no registration yet, and that is fine. Confirm your KRA PIN either way (free).
 - [ ] Make a "proof" album: every testimonial, every before/after
 - [ ] Status #10, #11
 - [ ] **30 DMs**

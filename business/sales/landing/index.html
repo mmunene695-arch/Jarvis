@@ -44,7 +44,8 @@ h2{font-size:21px;letter-spacing:-.01em;margin-bottom:6px}
 .row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .pay{background:var(--green-l);border:2px dashed var(--green);border-radius:14px;padding:20px;text-align:center}
 .pay h3{font-size:17px;margin-bottom:6px;color:var(--green-d)}
-.till{font-size:33px;font-weight:800;letter-spacing:.06em;color:var(--ink);margin:12px 0 4px}
+.paynum{font-size:clamp(21px,7.2vw,33px);font-weight:800;letter-spacing:.04em;color:var(--ink);
+  margin:12px 0 4px;word-break:break-word;line-height:1.2}
 .steps{text-align:left;background:#fff;border-radius:11px;padding:16px 18px;font-size:14.5px;margin-top:14px}
 .steps li{margin:0 0 9px 18px}
 .lead{background:var(--ink);color:#fff;border-radius:14px;padding:22px;text-align:center}
@@ -202,16 +203,10 @@ footer a{color:#4ade80}
     <h2>How to pay</h2>
     <p class="sub">M-Pesa. Instant. No card, no account, no app.</p>
     <div class="pay">
-      <h3>Lipa na M-Pesa — Till Number</h3>
-      <div class="till">ASK ME</div>
+      <h3>Send Money — M-Pesa</h3>
+      <div class="paynum">07XX XXX XXX</div>
       <div style="font-weight:700;color:var(--green-d)">[YOUR MPESA NAME]</div>
-      <ol class="steps">
-        <li>Go to <b>M-Pesa</b> → <b>Lipa na M-Pesa</b> → <b>Buy Goods and Services</b></li>
-        <li>Enter Till Number <b>ASK ME</b></li>
-        <li>Enter the amount</li>
-        <li>Enter your M-Pesa PIN and confirm</li>
-        <li>Screenshot the confirmation and send it on WhatsApp 👇</li>
-      </ol>
+      <ol class="steps"><li>Go to <b>M-Pesa</b> → <b>Send Money</b></li><li>Enter phone number <b>07XX XXX XXX</b></li><li>Enter the amount</li><li>Enter your M-Pesa PIN and confirm</li><li>Screenshot the confirmation and send it on WhatsApp 👇</li></ol>
       <a class="btn btn-wa" style="margin-top:16px" href="https://wa.me/254700000000?text=Hi%20KaziPesa%20Digital%21%20I%27ve%20paid%20via%20M-Pesa.%20Screenshot%20attached.%20My%20order%3A%20">📲 I've paid — send me my order</a>
       <p class="note">Or send me a message first and I'll walk you through it.</p>
     </div>
@@ -293,7 +288,7 @@ footer a{color:#4ade80}
   <div class="wrap">
     <p style="color:#fff;font-weight:700;font-size:15px;margin-bottom:6px">KaziPesa Digital</p>
     <p>[YOUR NAME] · Nyeri, Kenya · <a href="https://wa.me/254700000000">WhatsApp 07XX XXX XXX</a></p>
-    <p style="margin-top:10px;opacity:.7">Payments via M-Pesa Till ASK ME. Delivery on WhatsApp. Full refunds, no questions asked.</p>
+    <p style="margin-top:10px;opacity:.7">Payments via M-Pesa to 07XX XXX XXX ([YOUR MPESA NAME]). Delivery on WhatsApp. Full refunds, no questions asked.</p>
   </div>
 </footer>
 

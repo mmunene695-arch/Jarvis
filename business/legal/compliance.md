@@ -4,17 +4,24 @@
 
 ---
 
-## Priority 1 — Today (free, 30 minutes)
+## Priority 1 — Today (free, 15 minutes)
 
-### M-Pesa Till (Buy Goods) — FREE
-- Dial **`*334#`** → *Lipa na M-Pesa* → *Till Number* (Buy Goods) → follow prompts.
-- Or any Safaricom shop in Nyeri with your National ID — 30 minutes, free.
-- Approval 1–3 working days.
-- **Meanwhile: take payments on your personal M-Pesa number.** Tell buyers: *"Send to 07xx xxx xxx — [YOUR NAME]."* This is completely normal in Kenya.
+### Taking payment: your personal M-Pesa number
+This is the setup, and it is all you need:
 
-### M-Pesa limits
-- Your line must be registered in your own name (Safaricom will not register it otherwise).
-- If you expect to receive >KES 70,000/day or hold >KES 100,000, visit a Safaricom shop with your ID to raise your tier.
+- Buyers go to **M-Pesa → Send Money**, enter your number, enter the amount, confirm.
+- Tell buyers: *"Send to 07XX XXX XXX — ."* Completely normal in Kenya.
+- **No Till, no Paybill, no gateway, no approval, no cost.**
+
+**The three checks before your first sale:**
+- [ ] The line is **registered in your own name**. Safaricom will not register it otherwise, and this is the single thing most likely to block your money.
+- [ ] You can **receive** right now — test with KES 10 from a friend.
+- [ ] Your **daily limit** is high enough. Dial `*334#` → *My M-Pesa*. Over KES 70,000/day or KES 100,000 balance → visit a Safaricom shop in Nyeri with your ID to raise your tier.
+
+### The upgrade path (free, do it later when you're busy)
+A **Lipa na M-Pesa Till** is free and makes you look established. Dial `*334#` → *Lipa na M-Pesa* → *Till Number (Buy Goods)*, or walk into any Safaricom shop with your ID. Approval takes 1–3 working days.
+When you have it: set `"payment_mode": "till"` in `brand/config.json`, add the number and name, run `python3 business/ops/setup.py`. The order page rewrites itself.
+Manual confirmation (buyer DMs you, you send the number, they screenshot) comfortably handles about 20 orders a day — you do not need more than that for a long while.
 
 ### Know your transaction records
 - Dial **`*234#`** → *M-Pesa Statement* to get a full statement emailed to you.
@@ -22,7 +29,9 @@
 
 ---
 
-## Priority 2 — By Day 10 (≈KES 1,000, 1–2 days)
+## Priority 2 — When you can afford it (≈KES 1,000, 1–2 days)
+
+*You are starting with KES 0, so this waits until the business has earned it. Nothing here blocks you from selling today. Confirm your **KRA PIN** now though — it is free.*
 
 ### Business name registration — ≈KES 1,000
 1. Go to **ecitizen.go.ke** → create an account.

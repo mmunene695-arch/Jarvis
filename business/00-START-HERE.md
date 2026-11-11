@@ -4,32 +4,40 @@ Total time: **about 3 hours.** Do not skip ahead. Do not redesign anything.
 
 ---
 
-## ☐ 1. Fill in your 4 details (5 minutes)
+## ☐ 1. Fill in your 3 details (5 minutes)
 
-Open `business/brand/brand-kit.md` and replace every `[BRACKET]`:
+Open **`business/brand/config.json`** and replace the three placeholders:
 
-- `[YOUR NAME]`
-- `07XX XXX XXX` — e.g. 0712 345 678
-- `ASK ME` — leave as `ASK ME` if not yet approved
-- `[YOUR MPESA NAME]`
+| Field | Replace with | Example |
+|---|---|---|
+| `name` | Your full name | `"[YOUR NAME]"` |
+| `whatsapp` **and** `personal_number` | Your Safaricom number, registered to your ID | `"07XX XXX XXX"` |
+| `mpesa_registered_name` | The name people see on M-Pesa | `"[YOUR MPESA NAME]"` |
+
+Leave `payment_mode` as `"personal"` — customers **Send Money** straight to your number. Free, instant, no approval needed.
 
 Then run:
 
 ```bash
 cd /home/user/Jarvis
-python3 business/ops/setup.py     # propagates your details into the landing page and scripts
+python3 business/ops/setup.py     # pushes your details into the landing page and every script
 ```
+
+Later, if you get a Till: set `payment_mode` to `"till"`, fill in `till` and `till_name`, run setup again. The order page rewrites itself.
 
 ---
 
-## ☐ 2. Apply for a free M-Pesa Till (20 minutes)
+## ☐ 2. Check your M-Pesa line is ready (5 minutes)
 
-On the Safaricom line registered to your ID:
+Do this **before** you take a single shilling — it is the one thing that can block your cash:
 
-- Dial **`*334#`** → *Lipa na M-Pesa* → *Till Number (Buy Goods)* → follow prompts.
-- **Or** walk into any Safaricom shop in Nyeri town with your National ID — 30 minutes, free.
+- [ ] The line is **registered in your own name** at Safaricom (not a relative's).
+- [ ] You can **receive** money right now. Test it: get someone to send you KES 10.
+- [ ] Your **daily limit** is high enough. Dial `*334#` → *My M-Pesa* and check. If you expect over KES 70,000/day, visit a Safaricom shop in Nyeri with your ID to raise your tier.
 
-Approval: 1–3 working days. **Until it arrives, take payments on your personal M-Pesa number** ("Send Money"). Tell customers: *"Pay to 07xx xxx xxx — [YOUR NAME]."* That is completely normal in Kenya and nobody will blink.
+Say this to customers: *"Send to 07XX XXX XXX — [YOUR MPESA NAME]."* Completely normal in Kenya. Nobody will blink.
+
+**Optional, later:** a free Lipa na M-Pesa Till makes you look more established (`*334#` → *Lipa na M-Pesa* → *Till Number*, 1–3 working days). Do it when you're already busy, not today.
 
 ---
 
