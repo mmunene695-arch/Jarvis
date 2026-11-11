@@ -10,9 +10,9 @@ Open **`business/brand/config.json`** and replace the three placeholders:
 
 | Field | Replace with | Example |
 |---|---|---|
-| `name` | Your full name | `"[YOUR NAME]"` |
-| `whatsapp` **and** `personal_number` | Your Safaricom number, registered to your ID | `"07XX XXX XXX"` |
-| `mpesa_registered_name` | The name people see on M-Pesa | `"[YOUR MPESA NAME]"` |
+| `name` | Your full name | `"Mark Munene"` |
+| `whatsapp` **and** `personal_number` | Your Safaricom number, registered to your ID | `"+254729213641"` |
+| `mpesa_registered_name` | The name people see on M-Pesa | `"Mark Munene"` |
 
 Leave `payment_mode` as `"personal"` — customers **Send Money** straight to your number. Free, instant, no approval needed.
 
@@ -35,7 +35,7 @@ Do this **before** you take a single shilling — it is the one thing that can b
 - [ ] You can **receive** money right now. Test it: get someone to send you KES 10.
 - [ ] Your **daily limit** is high enough. Dial `*334#` → *My M-Pesa* and check. If you expect over KES 70,000/day, visit a Safaricom shop in Nyeri with your ID to raise your tier.
 
-Say this to customers: *"Send to 07XX XXX XXX — [YOUR MPESA NAME]."* Completely normal in Kenya. Nobody will blink.
+Say this to customers: *"Send to +254729213641 — Mark Munene."* Completely normal in Kenya. Nobody will blink.
 
 **Optional, later:** a free Lipa na M-Pesa Till makes you look more established (`*334#` → *Lipa na M-Pesa* → *Till Number*, 1–3 working days). Do it when you're already busy, not today.
 
@@ -48,7 +48,7 @@ WhatsApp → Status → paste this image caption (use the graphic you'll make in
 > 📄 **CV MAKEOVER — KES 800**
 > Job hunting? I rewrite your CV in 24 hours so it actually gets shortlisted.
 > ✅ ATS-friendly ✅ Kenyan format ✅ Cover letter included
-> 📲 WhatsApp me: **07XX XXX XXX**
+> 📲 WhatsApp me: **+254729213641**
 > Pay after you see the draft. Nyeri & nationwide.
 
 Then **DM the same message to 10 people** — graduates, former classmates, anyone job hunting. Do not broadcast to a group; send it personally.

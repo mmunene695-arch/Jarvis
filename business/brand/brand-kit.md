@@ -14,10 +14,10 @@ That script pushes your details into the landing page, every sales script and ev
 | Field | Example | Notes |
 |---|---|---|
 | `brand` | `KaziPesa Digital` | Change if you have a better name — short, sayable, spellable |
-| `name` | `[YOUR NAME]` | Your real name. Trust sells. |
-| `whatsapp` | `07XX XXX XXX` | The number that receives orders |
+| `name` | `Mark Munene` | Your real name. Trust sells. |
+| `whatsapp` | `+254729213641` | The number that receives orders |
 | `till` | `123456` | Your Lipa na M-Pesa Till. Use `` until approved. |
-| `till_name` | `[YOUR MPESA NAME]` | The name that appears on the buyer's M-Pesa receipt |
+| `till_name` | `Mark Munene` | The name that appears on the buyer's M-Pesa receipt |
 | `town` | `Nyeri` | Appears in copy |
 | `tagline` | `Kazi leo. Pesa leo.` | Optional |
 

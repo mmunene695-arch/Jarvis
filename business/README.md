@@ -1,6 +1,6 @@
 # KaziPesa Digital — Business-in-a-Box
 
-**Owner:** [YOUR NAME] · Nyeri, Kenya
+**Owner:** Mark Munene · Nyeri, Kenya
 **Model:** Kenyan career & small-business **digital services + digital products**, paid straight to **M-Pesa**
 **Built:** 2026-11-11 · **Target: first M-Pesa shilling in 72 hours, KES 10,000+ by Day 14**
 

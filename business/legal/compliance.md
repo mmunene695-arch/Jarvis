@@ -10,7 +10,7 @@
 This is the setup, and it is all you need:
 
 - Buyers go to **M-Pesa → Send Money**, enter your number, enter the amount, confirm.
-- Tell buyers: *"Send to 07XX XXX XXX — ."* Completely normal in Kenya.
+- Tell buyers: *"Send to +254729213641 — ."* Completely normal in Kenya.
 - **No Till, no Paybill, no gateway, no approval, no cost.**
 
 **The three checks before your first sale:**

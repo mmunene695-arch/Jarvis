@@ -81,19 +81,26 @@ The switch is a one-line change: set `"payment_mode": "till"` in `brand/config.j
 
 ---
 
-## Decisions I could NOT make for you
+## Decisions I could not make for you — **now supplied and applied**
 
-These need your input, and the business cannot go live without them:
+| # | Question | Answer | Applied to |
+|---|---|---|---|
+| 1 | Full name | **Mark Munene** | `brand/config.json` → `name` |
+| 2 | WhatsApp / M-Pesa number | **+254 729 213 641** (shown to buyers as `0729 213 641`) | `whatsapp`, `personal_number` |
+| 3 | Name shown on M-Pesa | **Mark Munene** | `mpesa_registered_name` |
+| 4 | Payment rail | **Personal M-Pesa — Send Money** | `payment_mode: "personal"` |
+| 5 | Starting capital | **KES 0** | `decision-engine.md`, rule M5 |
 
-| # | What I need | Where it goes |
-|---|---|---|
-| 1 | Your full name (brand name is settled: **KaziPesa Digital**) | `brand/config.json` → `name` |
-| 2 | Your WhatsApp / M-Pesa number (07xx) — **the number must be registered to your own ID** | `brand/config.json` → `whatsapp` and `personal_number` |
-| 3 | The name that appears on your M-Pesa (e.g. "[YOUR MPESA NAME]") | `brand/config.json` → `mpesa_registered_name` |
-| 4 | Confirmation you have a smartphone, National ID and a KRA PIN (or will get one) | `legal/compliance.md` |
+`setup.py` has been run: every script, product file, the landing page and all three email drafts now carry these details, and the Drive product copies were updated to match.
 
-Then run `python3 business/ops/setup.py` once and every file updates itself.
+### The one thing still to confirm
 
-**A note on #2:** the whole business runs on that one number. Check it is Safaricom, registered in your own name, and that you can receive. If it is not registered to you, sort that out before you take a single payment — it is the one thing that can block cash out.
+**Is 0729 213 641 registered to you personally at Safaricom?**
 
-Everything else is built, ready, and waiting.
+The whole business runs through that one number. If it is registered to a relative or a friend, two things break: you cannot raise your transaction limits, and a customer disputing a payment has no clean trail back to you. Check it before your first sale. If it is not in your name, sort that out first — it is the single most likely thing to block your money.
+
+### Still open, but nothing here blocks you from selling today
+
+- **KRA PIN** — confirm it is active (`itax.kra.go.ke`, free). Needed by Day 10, not today.
+- **Business name registration** (~KES 1,000) — only once KES 1,000 of profit exists. See D13.
+- **Lipa na M-Pesa Till** (free) — upgrade when you pass ~20 orders a day. See D4.

@@ -107,7 +107,7 @@ If it takes more than 15 minutes, it is too long.
 
 **CV Makeover — KES 800.** You send your current CV and 3 job adverts you want to apply for. You get back an ATS-ready CV plus a matching cover letter, within 24 hours.
 
-WhatsApp: **07XX XXX XXX**
+WhatsApp: **+254729213641**
 
 ---
 

@@ -256,6 +256,6 @@ Three sentences. Restate the ask, the strength of the business, and what approva
 
 ---
 
-**Need it written for you? KaziPesa Digital — done-for-you business plan, KES 3,500, 72 hours. WhatsApp 07XX XXX XXX**
+**Need it written for you? KaziPesa Digital — done-for-you business plan, KES 3,500, 72 hours. WhatsApp +254729213641**
 
 *© KaziPesa Digital. For the personal use of the purchaser. Do not resell or redistribute.*

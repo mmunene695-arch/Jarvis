@@ -50,7 +50,7 @@
 ## Script 3 — Warm contact / friend (the amplifier)
 
 > Hey [Name]! Quick one — I've started doing CV rewriting and business plans on the side (KaziPesa Digital). KES 800 for a CV, done in 24 hours.
-> Not asking you to buy — asking you to **share my WhatsApp Status** if you see it this week. Or if you know someone job hunting or someone needing funding for a business, point them to me. Share my number: 07XX XXX XXX.
+> Not asking you to buy — asking you to **share my WhatsApp Status** if you see it this week. Or if you know someone job hunting or someone needing funding for a business, point them to me. Share my number: +254729213641.
 > Asante! 🙏
 
 *Warm contacts convert badly as buyers and brilliantly as distribution. Use them for reach, not revenue.*
@@ -72,7 +72,7 @@ Post this in groups: Nyeri town buy/sell, job groups, church/mosque groups, alum
 >
 > Also doing funding-ready business plans (Uwezo / WEF / Youth Fund / SACCO) — KES 3,500.
 >
-> 📲 WhatsApp **07XX XXX XXX**. Say "CV" and I'll send you a free guide first.
+> 📲 WhatsApp **+254729213641**. Say "CV" and I'll send you a free guide first.
 
 ---
 

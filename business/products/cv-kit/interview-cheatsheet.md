@@ -82,4 +82,4 @@ Then: note down every question they asked you, while you still remember. That is
 
 ---
 
-**KaziPesa Digital · 07XX XXX XXX · CV Makeover KES 800**
+**KaziPesa Digital · +254729213641 · CV Makeover KES 800**

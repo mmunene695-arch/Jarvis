@@ -72,7 +72,7 @@ Use 3–5, not 20:
 Caption template:
 > [One-line restatement of the hook] 👇
 > Full guide free on WhatsApp — just say CV.
-> 📲 07XX XXX XXX
+> 📲 +254729213641
 > #KenyaJobs #CVTips #Nyeri
 
 ---
