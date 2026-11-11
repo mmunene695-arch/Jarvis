@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Founder Command Center — KiboFlow Studio</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="./" class="brand">
+        <span class="brand-mark">KF</span>
+        <span>KiboFlow Studio · Founder HQ</span>
+      </a>
+      <div class="nav-actions">
+        <a href="./demos/hospitality" class="btn btn-outline btn-sm">Hospitality Demo</a>
+        <a href="./demos/clinic" class="btn btn-outline btn-sm">Clinic Demo</a>
+        <a href="./demos/hardware" class="btn btn-outline btn-sm">Hardware Demo</a>
+        <a href="./" class="btn btn-primary btn-sm">← Public Storefront</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top:26px; padding-bottom:64px;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:16px; flex-wrap:wrap;">
+      <div>
+        <div class="eyebrow" style="margin-bottom:8px;">CEO &amp; Operations Dashboard · Africa/Nairobi (EAT)</div>
+        <h1 style="margin:0; font-size:1.95rem;">Fast-Cash Sales Pipeline &amp; Executive Control</h1>
+      </div>
+      <button type="button" id="open-new-lead-btn" class="btn btn-primary btn-sm">+ Add Prospect Lead</button>
+    </div>
+
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <span class="label">Local Fast-Cash Pipeline</span>
+        <strong class="val" id="kpi-local-pipe">KES 310,000</strong>
+        <small id="kpi-ready-count">6 Nyeri SMB targets · M-Pesa ready</small>
+      </div>
+      <div class="kpi-card">
+        <span class="label">Projected 14-Day Cash</span>
+        <strong class="val" id="kpi-proj-cash">KES 108,500</strong>
+        <small>At conservative 35% local close rate</small>
+      </div>
+      <div class="kpi-card">
+        <span class="label">Collected 50% Deposits</span>
+        <strong class="val" id="kpi-collected">KES 0</strong>
+        <small id="kpi-mrr">Potential care MRR: KES 39,500/mo</small>
+      </div>
+      <div class="kpi-card">
+        <span class="label">Kenyan Mid-Market Warm</span>
+        <strong class="val" id="kpi-mid-pipe">KES 630,000</strong>
+        <small>KTDA &amp; KPA Gmail drafts staged</small>
+      </div>
+    </section>
+
+    <div class="tabs" role="tablist">
+      <button type="button" class="tab-btn active" data-tab="tab-crm">1. Sales CRM &amp; Pitch Generator</button>
+      <button type="button" class="tab-btn" data-tab="tab-decisions">2. CEO Decisions &amp; Issues Resolved</button>
+      <button type="button" class="tab-btn" data-tab="tab-systems">3. Connected Ecosystem Status</button>
+    </div>
+
+    <!-- TAB 1: CRM -->
+    <section id="tab-crm">
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+        <button type="button" class="btn btn-outline btn-sm stage-filter active" data-stage="All">All Leads</button>
+        <button type="button" class="btn btn-outline btn-sm stage-filter" data-stage="Ready to Call">Ready to Call</button>
+        <button type="button" class="btn btn-outline btn-sm stage-filter" data-stage="Queued">Queued</button>
+        <button type="button" class="btn btn-outline btn-sm stage-filter" data-stage="Follow-Up Staged">Follow-Up Staged</button>
+        <button type="button" class="btn btn-outline btn-sm stage-filter" data-stage="Deposit Paid">Deposit Paid</button>
+        <button type="button" class="btn btn-outline btn-sm stage-filter" data-stage="Paused - Bounced">Quarantined Bounces</button>
+      </div>
+
+      <div class="table-wrap">
+        <table class="crm-table">
+          <thead>
+            <tr>
+              <th>Prospect &amp; Location</th>
+              <th>Track &amp; Stage</th>
+              <th>Ask / Accept / Floor</th>
+              <th>Pain Point &amp; Next Action</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="crm-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB 2: CEO DECISIONS -->
+    <section id="tab-decisions" style="display:none;">
+      <div id="decisions-list" style="display:grid; gap:16px;"></div>
+    </section>
+
+    <!-- TAB 3: CONNECTED SYSTEMS -->
+    <section id="tab-systems" style="display:none;">
+      <div class="grid-2">
+        <div class="card">
+          <div>
+            <span class="badge">Gmail (mmunene695@gmail.com)</span>
+            <h3 style="margin:0 0 8px;">CRM Labels, Bounce Quarantine &amp; Staged Drafts</h3>
+            <ul class="check-list">
+              <li>Created <code>KiboFlow/1-Hot-Local-Leads</code>, <code>KiboFlow/2-MidMarket-Sent</code>, <code>KiboFlow/3-Bounced-Stop</code>, and <code>KiboFlow/4-Infra-Alerts</code>.</li>
+              <li>Quarantined bounced foreign threads (Dashen Bank, Tunisair, Cosumar) to protect primary sender reputation.</li>
+              <li>Staged ready-to-review Drafts for KTDA, KPA (with <code>kpa-concept</code> link), Le Pristine Hotel quote, and Executive Briefing.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <div>
+            <span class="badge">Google Calendar (Africa/Nairobi · EAT)</span>
+            <h3 style="margin:0 0 8px;">Dedicated Operations &amp; Sales Sprint Calendar</h3>
+            <ul class="check-list">
+              <li>Fixed UTC mismatch by creating dedicated <code>KiboFlow Studio — Operations &amp; Sales</code> calendar in <code>Africa/Nairobi</code> (UTC+3).</li>
+              <li>Scheduled Power Dial blocks, Nyeri Town walk-in blitz, 24-hour follow-up reminders, Friday M-Pesa deposit close, and next week's build blocks.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <div>
+            <span class="badge">Google Drive HQ</span>
+            <h3 style="margin:0 0 8px;">Structured Company Vault &amp; Legal Templates</h3>
+            <ul class="check-list">
+              <li>Provisioned <code>KiboFlow Studio — Company HQ</code> with 4 departmental subfolders.</li>
+              <li>Uploaded native Google Docs &amp; Sheets: Master Business Plan, Active Pipeline CRM Sheet, Phone &amp; WhatsApp Playbook, Client Proposal Template, Master Service Agreement (50% deposit protection), and Invoice Ledger.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <div>
+            <span class="badge">GitHub &amp; Zero-Cost Hosting</span>
+            <h3 style="margin:0 0 8px;">Netlify Credit Exhaustion Mitigation</h3>
+            <ul class="check-list">
+              <li>Detected Nov 10 Netlify alert: production deploys paused and only 30 operational credits left before site suspension.</li>
+              <li>Built self-contained industry demos + <code>python -m kiboflow --export-static</code> + GitHub Pages workflow (<code>.github/workflows/deploy-pages.yml</code>) for unlimited $0 hosting.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PITCH & INVOICE MODAL -->
+  <div class="modal-backdrop" id="pitch-modal">
+    <div class="modal">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+        <h3 style="margin:0;" id="modal-lead-title">Pitch &amp; 50% Deposit Invoice</h3>
+        <button type="button" class="btn btn-outline btn-sm" id="close-pitch-modal">Close ✕</button>
+      </div>
+
+      <label style="font-size:0.8rem; font-weight:700; color:#6ee7b7; display:block; margin-bottom:4px;">1. 20-Second Phone Opener</label>
+      <div class="code-box" id="modal-call-script"></div>
+
+      <label style="font-size:0.8rem; font-weight:700; color:#6ee7b7; display:block; margin-bottom:4px;">2. 60-Second WhatsApp Link Drop</label>
+      <div class="code-box" id="modal-wa-script"></div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:14px;">
+        <button type="button" class="btn btn-primary btn-sm" id="copy-wa-btn">Copy WhatsApp Message</button>
+        <a href="#" target="_blank" rel="noopener" class="btn btn-amber btn-sm" id="open-wa-direct">Open in WhatsApp →</a>
+      </div>
+
+      <label style="font-size:0.8rem; font-weight:700; color:#fcd34d; display:block; margin-bottom:4px;">3. Floor &amp; Scope Protection Rule</label>
+      <div class="code-box" id="modal-floor-rule"></div>
+
+      <div id="printable-invoice" style="background:#ffffff; color:#0f211b; border-radius:12px; padding:18px; margin-top:14px;">
+        <div style="display:flex; justify-content:space-between; border-bottom:2px solid #10b981; padding-bottom:10px; margin-bottom:12px;">
+          <div>
+            <strong style="font-size:1.15rem;">KIBOFLOW STUDIO</strong><br />
+            <span style="font-size:0.8rem; color:#4b635b;">Mark Munene · Nyeri Town, Kenya · +254 729 213641</span>
+          </div>
+          <div style="text-align:right; font-size:0.82rem;">
+            <strong id="inv-number">INVOICE #KF-2026-101</strong><br />
+            <span id="inv-valid">Price Lock Until Friday</span>
+          </div>
+        </div>
+        <div style="font-size:0.88rem; margin-bottom:12px;">
+          <strong>Bill To:</strong> <span id="inv-client"></span><br />
+          <strong>Package:</strong> <span id="inv-pkg"></span>
+        </div>
+        <table style="width:100%; border-collapse:collapse; font-size:0.86rem; margin-bottom:12px;">
+          <tr style="background:#f1f5f9;">
+            <th style="padding:8px; text-align:left;">Milestone</th>
+            <th style="padding:8px; text-align:right;">Amount (KES)</th>
+          </tr>
+          <tr>
+            <td style="padding:8px; border-bottom:1px solid #e2e8f0;">50% Booking Deposit (Locks 7-Day Build Slot)</td>
+            <td style="padding:8px; border-bottom:1px solid #e2e8f0; text-align:right; font-weight:700;" id="inv-deposit"></td>
+          </tr>
+          <tr>
+            <td style="padding:8px; border-bottom:1px solid #e2e8f0;">50% Launch Balance (Upon Live Mobile Sign-Off)</td>
+            <td style="padding:8px; border-bottom:1px solid #e2e8f0; text-align:right;" id="inv-balance"></td>
+          </tr>
+          <tr>
+            <td style="padding:8px; font-weight:800;">Total Fixed Project Investment</td>
+            <td style="padding:8px; text-align:right; font-weight:800;" id="inv-total"></td>
+          </tr>
+        </table>
+        <div style="font-size:0.8rem; color:#334155;">
+          <strong>M-Pesa Payment Details:</strong> Send 50% deposit to <strong>0729 213641 (Mark Munene)</strong>. Optional Monthly Care &amp; WhatsApp Automation Plan: <span id="inv-retainer"></span>/mo after launch.
+        </div>
+      </div>
+
+      <div style="margin-top:14px; display:flex; justify-content:flex-end;">
+        <button type="button" class="btn btn-outline btn-sm" onclick="window.print()">Print / Save Invoice PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD LEAD MODAL -->
+  <div class="modal-backdrop" id="new-lead-modal">
+    <div class="modal" style="max-width:520px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+        <h3 style="margin:0;">Add New Sales Lead</h3>
+        <button type="button" class="btn btn-outline btn-sm" id="close-new-lead-modal">Close ✕</button>
+      </div>
+      <form id="new-lead-form">
+        <div class="field">
+          <label>Company Name *</label>
+          <input type="text" id="nl-company" required placeholder="e.g. White Rhino Hotel" />
+        </div>
+        <div class="field">
+          <label>Contact Person</label>
+          <input type="text" id="nl-contact" placeholder="Owner / Manager" />
+        </div>
+        <div class="field">
+          <label>Phone / WhatsApp</label>
+          <input type="text" id="nl-phone" placeholder="+254 7XX XXX XXX" />
+        </div>
+        <div class="field">
+          <label>Location &amp; Sector</label>
+          <input type="text" id="nl-sector" placeholder="Nyeri · Hospitality" />
+        </div>
+        <div class="field">
+          <label>Ask Price (KES)</label>
+          <input type="number" id="nl-ask" value="55000" min="15000" step="1000" />
+        </div>
+        <div class="field">
+          <label>Key Pain Point</label>
+          <input type="text" id="nl-pain" placeholder="No mobile booking link or slow legacy site" />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Save Lead to Pipeline</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="./ops.js"></script>
+</body>
+</html>

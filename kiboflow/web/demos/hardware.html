@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Central Builders &amp; Agro-Supply — Live Contractor RFQ Concept</title>
+  <style>
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#f3f4f6; color:#111827; padding-bottom:72px; overflow-x:hidden; }
+    .ribbon { background:#111827; color:#f9fafb; font-size:0.78rem; text-align:center; padding:8px 12px; }
+    .ribbon a { color:#fbbf24; font-weight:700; text-decoration:none; }
+    .hero { background:#1f2937; color:#fff; padding:32px 18px; border-bottom:4px solid #f59e0b; }
+    .wrap { max-width:920px; margin:0 auto; }
+    h1 { margin:8px 0; font-size:clamp(1.65rem,4.8vw,2.35rem); }
+    .section { max-width:920px; margin:0 auto; padding:24px 18px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; }
+    .item { background:#fff; border:1px solid #d1d5db; border-radius:10px; padding:15px; display:flex; justify-content:space-between; align-items:center; gap:10px; }
+    .btn { background:#f59e0b; color:#111827; border:0; padding:8px 12px; border-radius:8px; font-weight:800; cursor:pointer; }
+    .rfq { background:#fff; border:2px solid #111827; border-radius:12px; padding:18px; margin-top:20px; }
+    input { width:100%; padding:10px; border:1px solid #cbd5e1; border-radius:8px; margin-bottom:10px; }
+  </style>
+</head>
+<body>
+  <div class="ribbon">
+    Design Concept by <strong>KiboFlow Studio</strong> (Mark Munene · +254 729 213641) · <a href="../">Back to KiboFlow</a>
+  </div>
+  <header class="hero">
+    <div class="wrap">
+      <div style="color:#fbbf24; font-weight:700; font-size:0.82rem;">SAME-DAY LORRY DELIVERY · NYERI, KARATINA &amp; NANYUKI</div>
+      <h1>Get Instant Contractor &amp; Farm Bulk Quotes on WhatsApp.</h1>
+      <p style="margin:0; color:#d1d5db;">Add materials to your site list below and receive confirmed stock + delivery pricing in 5 minutes.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="grid">
+      <div class="item">
+        <div><strong>Simba / Bamburi Cement 32.5R (50kg)</strong><div style="font-size:0.82rem; color:#4b5563;">Wholesale pallet &amp; lorry rates available</div></div>
+        <button class="btn" onclick="addMat('50x Bags Cement 50kg')">+ Add</button>
+      </div>
+      <div class="item">
+        <div><strong>30-Gauge Coloured Box Profile Sheets (3m)</strong><div style="font-size:0.82rem; color:#4b5563;">Charcoal, Tile Red, Forest Green</div></div>
+        <button class="btn" onclick="addMat('40x Box Profile Sheets 3m')">+ Add</button>
+      </div>
+      <div class="item">
+        <div><strong>Drip Irrigation Kit (1/4 Acre Complete)</strong><div style="font-size:0.82rem; color:#4b5563;">Includes mainlines, filters, connectors &amp; drip tape</div></div>
+        <button class="btn" onclick="addMat('1x Quarter-Acre Drip Kit')">+ Add</button>
+      </div>
+      <div class="item">
+        <div><strong>Deformed Steel Bars D12 / D16</strong><div style="font-size:0.82rem; color:#4b5563;">KEBS certified structural reinforcement</div></div>
+        <button class="btn" onclick="addMat('25x D12 Steel Bars')">+ Add</button>
+      </div>
+    </div>
+
+    <div class="rfq">
+      <h3 style="margin:0 0 8px;">Dispatch Contractor Quote Request (RFQ)</h3>
+      <p id="rfq-list" style="font-size:0.86rem; color:#4b5563; margin:0 0 10px;">Quote list: Empty (tap + Add above)</p>
+      <input type="text" id="site-loc" placeholder="Delivery Site (e.g. King'ong'o / Othaya / Nanyuki)" />
+      <button class="btn" style="width:100%; background:#15803d; color:#fff; padding:12px; font-size:0.95rem;" onclick="sendRfq()">
+        Request Confirmed Quote + Delivery on WhatsApp →
+      </button>
+    </div>
+  </section>
+
+  <script>
+    const mats = [];
+    function addMat(m) {
+      mats.push(m);
+      document.getElementById("rfq-list").textContent = "Quote list: " + mats.join(" · ");
+    }
+    function sendRfq() {
+      const loc = document.getElementById("site-loc").value.trim() || "Nyeri Site";
+      const items = mats.length ? mats.join(", ") : "General hardware & building materials price list";
+      const msg = `Hello Sales Desk, please quote stock + delivery to ${loc}:\nMaterials: ${items}`;
+      window.open("https://wa.me/254729213641?text=" + encodeURIComponent(msg), "_blank");
+    }
+  </script>
+</body>
+</html>
